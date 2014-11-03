@@ -8,7 +8,6 @@
 
 .h12 {
 margin-left: 200px;
-color: #515251;
 }
 
 .text1 {
@@ -31,15 +30,16 @@ color: #515251;
 	width: 200px;
 	margin-left: 400px;
 	margin-top: -140px;
-	color: #363636;
+	padding-left: 13px;
 }
 
 .block1 p {
-	width: 180px;
+	width: 200px;
 	height: 150px;
 	margin-left: 400px;
-	color: 757575;
+	color: #757575;
 	font-size: 14px;
+	padding-left: 13px;
 }
 
 .botton1 {
@@ -48,7 +48,7 @@ color: #515251;
 	height: 38px;
 	width: 180px;
 	margin-left: 730px;
-	margin-top: -140px;
+	margin-top: -150px;
 	border-radius: 5px;
 }
 
@@ -60,4 +60,8 @@ color: #515251;
 	margin-left: 730px;
 	margin-top: 15px;
 	border-radius: 5px;
+}
+
+.logo1 {
+	padding-left: -30px;
 }
