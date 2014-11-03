@@ -1,5 +1,4 @@
-.bgcolor {
-}
+
 .bgcolor .block1 {
     color:black;
     font-size: 15px;
@@ -21,45 +20,44 @@ color: #515251;
 }
 
 #video {
-	background: blue;
-	height: 100px;
-	width: 150px;
-	border-radius: 5px;
+	height: 140px;
+	width: 180px;
 	margin-top: 150px;
 	margin-left: 215px;
 
 }
 
-#botton1 {
-	background: blue;
+.h41 {
+	width: 200px;
+	margin-left: 400px;
+	margin-top: -140px;
+	color: #363636;
+}
+
+.block1 p {
+	width: 180px;
+	height: 150px;
+	margin-left: 400px;
+	color: 757575;
+	font-size: 14px;
+}
+
+.botton1 {
+	background: #2D343E ;
+	color: white;
 	height: 38px;
 	width: 180px;
 	margin-left: 730px;
-	margin-top: -103px;
+	margin-top: -140px;
 	border-radius: 5px;
 }
 
-#botton2 {
-	background: blue;
+.botton2 {
+	background: #32CD8F;
+	color: white;
 	height: 38px;
 	width: 180px;
 	margin-left: 730px;
 	margin-top: 15px;
-	border-radius:5px;
+	border-radius: 5px;
 }
-
-.h41 {
-	width: 200px;
-	margin-left: 400px;
-	margin-top: -135px;
-	color: #363636;
-}
-
-.block1  p   {
-	width: 180px;
-	height: 150px;
-	margin-left: 400px;
-	color: #757575;
-	font-size: 14px;
-}
-
