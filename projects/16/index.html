@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Глава: Использование полей ввода
+даты и времени
+
+для создания формы для ввода даты или времени нужно :
+
+Первый вариант — элемент input с атрибутом type, который имеет значение datetime. 
+
+а для того, чтобы сделать 2 раздельных поля один для даты, другой для времени нужно задать элементу input с атрибутом type  значение либо date либо time.
+-->
+
+<head>
+    <meta charset="utf-8">
+    <title> project 16 </title>
+</head>
+
+<body>
+<form>
+	<p><label> Укажите дату и время <input type="datetime" name="dateAndTime"></label></p>
+	<p><button type="submit"> Отправить </button></p>
+</form>
+
+<form>
+	<fieldset>
+		<legend>Назначить встречу</legend>
+			<p><label> дата <input type="date" name="date"></label></p>
+			<p><label> время<input type="time" name="time"></label></p>
+		</fieldset>
+	<p><button type="submit"> Отправить </button></p>
+</form>
+
+</body>
+</html>
