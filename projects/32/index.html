@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Глава:  Использование эффекта прозрачности
+чтобы нарисовать на элементе canvas фигуры с прозрачными областями, чтобы сквозь них можно было увидеть фон
+ -->
+
+<head>
+    <meta charset="utf-8">
+    <title> project 32 </title>
+</head>
+
+<body>
+<canvas>
+<script>
+mycontext.beginPath();
+mycontext.arc(40, 40, 25, 0, Math.PI * 2, true); // рисуем круг
+mycontext.closePath();
+mycontext.fillStyle = *"00";
+mycontext.fill(); // заполняем круг сплошным цветом
+mycontext.beginPath();
+mycontext.arc(70, 40, 25, 0, Math.PI * 2, true); // рисуем другой круг
+mycontext.closePath();
+mycontext.fillStyle = "rgba(0,0,255,0.75)";
+mycontext.fill(); // заливаем второй круг сплошным цветом
+</script>
+</canvas>
+</body>
+</html>
