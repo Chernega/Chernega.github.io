@@ -11,8 +11,8 @@ body {
 
 .img1 {
 	width: 1200px;
-  	height: 758px;
-  	margin: auto;
+  height: 758px;
+  margin: auto;
   }
 
 .logo {
@@ -20,19 +20,19 @@ body {
 	color: white;
 	letter-spacing: 50px;
 	font-weight: 600;
-  	width: 40%;
-  	height: 40%;
-  	margin: auto;
-  	position: absolute;
-  	top: 0; left: 0; bottom: 0; right: 0;
+  width: 40%;
+  height: 40%;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 
 .menu {
-	position: relative;
-  	bottom: 720px;
-  	left: 715px;
-  	color: white;
-  	font-size: 22px;
+  position: relative;
+  bottom: 720px;
+  left: 789px;
+  color: white;
+  font-size: 22px;
 }
 
 th {
@@ -48,11 +48,11 @@ th {
 
  .text1 {
  	position: relative;
-  	font-size: 29px;
-  	top: 42px;
-  	left: 730px;
-  	color: #3D3D3D;
-  	overflow:  hidden; 
+  font-size: 29px;
+  top: 42px;
+  left: 730px;
+  color: #3D3D3D;
+  overflow:  hidden; 
 }
 
 .text2 {
@@ -68,10 +68,10 @@ th {
 
 .block3 {
 	background: #F0F0F0;
-  	margin-top: 196px;
-  	max-width: 1200px;
-  	height: 1425px;
-  	margin-left: 200px;
+  margin-top: 196px;
+  max-width: 1200px;
+  height: 1425px;
+  margin-left: 200px;
 }
 
 .werk {
@@ -94,14 +94,14 @@ th {
 .stroke {
 	position: relative;
  	top: 36px;
-  	left: 767px;
+  left: 767px;
 
 }
 
 .stroke1 {
 	position: relative;
 	top: 128px;
-  	left: 568px;
+  left: 568px;
   }
 
 .art1 {
@@ -113,13 +113,13 @@ th {
 .art2 {
 	position: relative;
 	top: 114px;
-  	left: 215px;	
+  left: 215px;	
 }
 
 .art3 {
 	position: relative;
 	top: -21px;
-  	left: 215px;
+  left: 215px;
 }
 
 .essa {
@@ -143,11 +143,11 @@ th {
 
 .tab {
 	font-size: 33px;
-  	color: white;
-  	font-weight: 300;
-  	top: 15px;
-  	left: 247px;
-  	position: relative;
+  color: white;
+  font-weight: 300;
+  top: 15px;
+  left: 247px;
+  position: relative;
 }
 
 .bud {
@@ -164,9 +164,9 @@ th {
 	font-size: 33px;
 	color: white;
 	font-weight: 300;
-  	top: -120px;
-  	left: 247px;
-  	position: relative;
+  top: -120px;
+  left: 247px;
+  position: relative;
 }
 
 .dor {
@@ -180,9 +180,9 @@ th {
 }
 
 .end {
-height: 625px;
-width: 1200px;
-background: white;
+  height: 625px;
+  width: 1200px;
+  background: white;
 }
 
 .meer {
@@ -196,8 +196,8 @@ background: white;
 
 .stroke2 {
 	position: relative;
-  	top: 119px;
-  	left: 769px;
+  top: 119px;
+  left: 769px;
 }
 
 .klik {
