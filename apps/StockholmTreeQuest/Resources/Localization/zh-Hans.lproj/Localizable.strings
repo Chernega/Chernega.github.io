@@ -1,0 +1,52 @@
+"tab.discover" = "探索";
+"tab.friends" = "好友";
+"tab.profile" = "资料";
+
+"discover.title" = "Tree Quest";
+"discover.subtitle" = "记录身边每一棵节日常青树";
+"discover.total_trees" = "已标记";
+"discover.friends_active" = "在线精灵";
+"discover.marker" = "树";
+"discover.add_tree" = "标记树木";
+"discover.timeline" = "极光时间线";
+"discover.timeline.empty" = "还没有树——点击“标记树木”留下第一枚图钉。";
+"discover.you" = "你";
+
+"sheet.add_tree.title" = "标记这棵树";
+"sheet.add_tree.subtitle" = "添加备注，记住它为何特别。";
+"sheet.add_tree.placeholder" = "可选备注";
+"sheet.add_tree.button" = "保存回忆";
+
+"friends.title" = "小队";
+"friends.headline" = "你的节日小队";
+"friends.chart.title" = "全球光辉";
+"friends.chart.subtitle" = "本月发现的树";
+"friends.row.trees" = "棵树";
+"friends.detail.trees" = "发现的树";
+"friends.detail.timeline" = "冒险日志";
+
+"profile.title" = "资料";
+"profile.greeting" = "你好，North Scout";
+"profile.total_trees" = "棵树已发现";
+"profile.mission" = "让闪耀的常青树继续点亮地球。";
+"profile.level" = "星光等级";
+"profile.next_level" = "升级进度";
+"profile.energy" = "节日能量";
+"profile.achievements" = "闪耀成就";
+"profile.language" = "语言";
+"profile.status.sprout" = "冰霜萌芽";
+"profile.status.orb" = "霜光之球";
+"profile.status.comet" = "北境彗星";
+"profile.status.aurora" = "极光队长";
+"profile.status.legend" = "光之传奇";
+
+"achievement.first_tree.title" = "第一道火花";
+"achievement.first_tree.subtitle" = "标记你的第一棵冬日树。";
+"achievement.frost_trail.title" = "霜之轨迹";
+"achievement.frost_trail.subtitle" = "标记10棵独特常青树。";
+"achievement.north_star.title" = "北极之星";
+"achievement.north_star.subtitle" = "记录25棵闪耀松树。";
+"achievement.aurora_leader.title" = "极光领袖";
+"achievement.aurora_leader.subtitle" = "庆祝50棵发光树木。";
+"achievement.legend.title" = "光芒传奇";
+"achievement.legend.subtitle" = "捕捉100棵魔法常青树。";
