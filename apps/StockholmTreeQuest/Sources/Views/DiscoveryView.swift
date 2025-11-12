@@ -5,6 +5,7 @@ struct DiscoveryView: View {
     @StateObject private var viewModel: DiscoveryViewModel
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject private var friendsService: FriendsService
+    @EnvironmentObject private var localization: LocalizationProvider
 
     init(treeStore: TreeStore, locationManager: LocationManager) {
         _viewModel = StateObject(wrappedValue: DiscoveryViewModel(treeStore: treeStore, locationProvider: locationManager))
@@ -24,7 +25,7 @@ struct DiscoveryView: View {
             .padding(.vertical, 16)
         }
         .sheet(isPresented: $viewModel.showAddNoteSheet) {
-            AddTreeSheet(noteText: $viewModel.noteText) {
+            AddTreeSheet(noteText: $viewModel.noteText, localization: localization) {
                 viewModel.addMarker()
             }
             .presentationDetents([.fraction(0.4)])
@@ -36,10 +37,10 @@ struct DiscoveryView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(NSLocalizedString("discover.title", comment: ""))
+                    Text(localization.string("discover.title"))
                         .font(.largeTitle.bold())
                         .foregroundStyle(.white)
-                    Text(NSLocalizedString("discover.subtitle", comment: ""))
+                    Text(localization.string("discover.subtitle"))
                         .font(.callout)
                         .foregroundStyle(.white.opacity(0.7))
                 }
@@ -55,13 +56,13 @@ struct DiscoveryView: View {
 
             HStack(spacing: 12) {
                 FrostedInfoCard(
-                    title: NSLocalizedString("discover.total_trees", comment: ""),
+                    title: localization.string("discover.total_trees"),
                     value: "\(viewModel.totalTrees)",
                     icon: "sparkles"
                 )
 
                 FrostedInfoCard(
-                    title: NSLocalizedString("discover.friends_active", comment: ""),
+                    title: localization.string("discover.friends_active"),
                     value: "\(friendsService.friends.count)",
                     icon: "person.2"
                 )
@@ -77,7 +78,7 @@ struct DiscoveryView: View {
             annotationItems: viewModel.markers
         ) { marker in
             MapAnnotation(coordinate: marker.coordinate) {
-                TreeMarkerView(marker: marker)
+                TreeMarkerView(marker: marker, localization: localization)
             }
         }
         .mapStyle(.standard(elevation: .realistic))
@@ -91,15 +92,17 @@ struct DiscoveryView: View {
                 let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentRegion.wrappedValue.center
                 viewModel.prepareMarkerCreation(at: coordinate)
             } label: {
-                Label(NSLocalizedString("discover.add_tree", comment: ""), systemImage: "plus")
+                Label(localization.string("discover.add_tree"), systemImage: "plus")
                     .font(.headline)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
                     .background(AppTheme.accent.gradient.opacity(0.9))
                     .clipShape(Capsule())
                     .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
+                    .foregroundStyle(.white)
             }
             .padding(20)
+            .buttonStyle(.plain)
         }
         .frame(height: 360)
         .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
@@ -107,11 +110,11 @@ struct DiscoveryView: View {
 
     private var timeline: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(NSLocalizedString("discover.timeline", comment: ""))
+            Text(localization.string("discover.timeline"))
                 .font(.title3.bold())
                 .foregroundStyle(.white)
             if viewModel.markers.isEmpty {
-                Text(NSLocalizedString("discover.timeline.empty", comment: ""))
+                Text(localization.string("discover.timeline.empty"))
                     .font(.callout)
                     .foregroundStyle(.white.opacity(0.7))
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -125,7 +128,7 @@ struct DiscoveryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(viewModel.markers) { marker in
-                            TimelineCard(marker: marker) {
+                            TimelineCard(marker: marker, localization: localization) {
                                 viewModel.removeMarker(marker)
                             }
                         }
@@ -139,6 +142,7 @@ struct DiscoveryView: View {
 
 private struct AddTreeSheet: View {
     @Binding var noteText: String
+    let localization: LocalizationProvider
     var onConfirm: () -> Void
 
     var body: some View {
@@ -147,18 +151,18 @@ private struct AddTreeSheet: View {
                 .fill(Color.white.opacity(0.3))
                 .frame(width: 48, height: 4)
                 .frame(maxWidth: .infinity)
-            Text(NSLocalizedString("sheet.add_tree.title", comment: ""))
+            Text(localization.string("sheet.add_tree.title"))
                 .font(.title3.bold())
-            Text(NSLocalizedString("sheet.add_tree.subtitle", comment: ""))
+            Text(localization.string("sheet.add_tree.subtitle"))
                 .font(.callout)
                 .foregroundStyle(.secondary)
-            TextField(NSLocalizedString("sheet.add_tree.placeholder", comment: ""), text: $noteText)
+            TextField(localization.string("sheet.add_tree.placeholder"), text: $noteText)
                 .textInputAutocapitalization(.sentences)
                 .submitLabel(.done)
                 .padding(14)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
             Button(action: onConfirm) {
-                Label(NSLocalizedString("sheet.add_tree.button", comment: ""), systemImage: "sparkles")
+                Label(localization.string("sheet.add_tree.button"), systemImage: "sparkles")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -198,12 +202,13 @@ private struct FrostedInfoCard: View {
 
 private struct TimelineCard: View {
     let marker: TreeMarker
+    let localization: LocalizationProvider
     var onDelete: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text(marker.note.isEmpty ? NSLocalizedString("discover.marker", comment: "") : marker.note)
+                Text(marker.note.isEmpty ? localization.string("discover.marker") : marker.note)
                     .font(.headline)
                 Spacer()
                 Button(role: .destructive, action: onDelete) {
@@ -233,13 +238,14 @@ private struct TimelineCard: View {
 
 private struct TreeMarkerView: View {
     let marker: TreeMarker
+    let localization: LocalizationProvider
 
     var body: some View {
         VStack(spacing: 4) {
             Text("🎄")
                 .font(.largeTitle)
                 .shadow(radius: 4)
-            Text(marker.note.isEmpty ? NSLocalizedString("discover.marker", comment: "") : marker.note)
+            Text(marker.note.isEmpty ? localization.string("discover.marker") : marker.note)
                 .font(.caption.bold())
                 .padding(.horizontal, 10)
                 .padding(.vertical, 4)
@@ -267,7 +273,10 @@ private struct UserAnnotationView: View {
     let treeStore = TreeStore()
     let locationManager = LocationManager()
     let friendsService = FriendsService()
+    let localization = LocalizationProvider()
+    localization.update(language: .english)
     return DiscoveryView(treeStore: treeStore, locationManager: locationManager)
         .environmentObject(locationManager)
         .environmentObject(friendsService)
+        .environmentObject(localization)
 }

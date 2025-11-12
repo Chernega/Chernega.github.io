@@ -21,9 +21,20 @@
 "friends.headline" = "Ton équipe féerique";
 "friends.chart.title" = "Éclat mondial";
 "friends.chart.subtitle" = "Arbres trouvés ce mois-ci";
+"friends.chart.empty" = "Invite des amis depuis Game Center pour illuminer ce graphique.";
 "friends.row.trees" = "arbres";
 "friends.detail.trees" = "arbres repérés";
 "friends.detail.timeline" = "Journal d'aventure";
+"friends.detail.no_visits" = "Pas encore d'aventures";
+"friends.detail.no_visits.subtitle" = "Quand ton ami commencera à marquer des evergreens, son voyage apparaîtra ici.";
+"friends.refresh" = "Actualiser";
+"friends.loading" = "Synchronisation avec Game Center";
+"friends.gamecenter.required" = "Connecte Game Center";
+"friends.gamecenter.description" = "Connecte-toi avec ton profil Game Center pour voir et défier ton équipe festive.";
+"friends.gamecenter.sign_in" = "Se connecter à Game Center";
+"friends.empty.title" = "Pas encore d'amis festifs";
+"friends.empty.subtitle" = "Ajoute des amis via Game Center pour comparer vos découvertes.";
+"friends.empty.add_button" = "Ouvrir les amis Game Center";
 
 "profile.title" = "Profil";
 "profile.greeting" = "Salut, North Scout";
@@ -50,3 +61,7 @@
 "achievement.aurora_leader.subtitle" = "Célèbre 50 arbres lumineux.";
 "achievement.legend.title" = "Légende des lumières";
 "achievement.legend.subtitle" = "Capture 100 evergreens magiques.";
+
+"auth.welcome.title" = "Connecte-toi à Tree Quest";
+"auth.welcome.subtitle" = "Utilise ton identifiant Apple pour synchroniser exploits et découvertes sur tous tes appareils.";
+"auth.privacy" = "Nous ne conservons que ton identifiant Apple sécurisé — aucune donnée personnelle n'est partagée.";

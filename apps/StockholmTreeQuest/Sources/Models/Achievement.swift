@@ -2,8 +2,8 @@ import Foundation
 
 struct Achievement: Identifiable, Hashable {
     let id: String
-    let title: String
-    let subtitle: String
+    let titleKey: String
+    let subtitleKey: String
     let icon: String
     let threshold: Int
 

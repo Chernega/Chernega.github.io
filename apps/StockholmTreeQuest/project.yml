@@ -32,6 +32,7 @@ targets:
         INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: "Геолокация помогает отображать найденные ёлки даже после возврата в приложение."
         INFOPLIST_KEY_CFBundleDisplayName: "Tree Quest"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        CODE_SIGN_ENTITLEMENTS: StockholmTreeQuest.entitlements
   StockholmTreeQuestTests:
     type: bundle.unit-test
     platform: iOS

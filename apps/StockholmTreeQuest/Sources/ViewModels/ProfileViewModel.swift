@@ -5,7 +5,7 @@ final class ProfileViewModel: ObservableObject {
     @Published private(set) var achievements: [Achievement] = []
     @Published private(set) var level: Int = 1
     @Published private(set) var progressToNextLevel: Double = 0
-    @Published private(set) var statusTitle: String = ""
+    @Published private(set) var statusKey: String = "profile.status.sprout"
 
     private let treeStore: TreeStore
 
@@ -23,7 +23,7 @@ final class ProfileViewModel: ObservableObject {
         let progress = Double(total - currentLevelRequirement)
         let span = Double(max(nextLevelRequirement - currentLevelRequirement, 1))
         progressToNextLevel = min(max(progress / span, 0), 1)
-        statusTitle = Self.title(for: level)
+        statusKey = Self.titleKey(for: level)
     }
 
     func unlockedAchievements() -> [Achievement] {
@@ -54,49 +54,49 @@ final class ProfileViewModel: ObservableObject {
         }
     }
 
-    private static func title(for level: Int) -> String {
+    private static func titleKey(for level: Int) -> String {
         switch level {
-        case 1: return NSLocalizedString("profile.status.sprout", comment: "")
-        case 2: return NSLocalizedString("profile.status.orb", comment: "")
-        case 3: return NSLocalizedString("profile.status.comet", comment: "")
-        case 4: return NSLocalizedString("profile.status.aurora", comment: "")
-        default: return NSLocalizedString("profile.status.legend", comment: "")
+        case 1: return "profile.status.sprout"
+        case 2: return "profile.status.orb"
+        case 3: return "profile.status.comet"
+        case 4: return "profile.status.aurora"
+        default: return "profile.status.legend"
         }
     }
 
     private static let defaultAchievements: [Achievement] = [
         Achievement(
             id: "first-tree",
-            title: NSLocalizedString("achievement.first_tree.title", comment: ""),
-            subtitle: NSLocalizedString("achievement.first_tree.subtitle", comment: ""),
+            titleKey: "achievement.first_tree.title",
+            subtitleKey: "achievement.first_tree.subtitle",
             icon: "🎄",
             threshold: 1
         ),
         Achievement(
             id: "frost-trail",
-            title: NSLocalizedString("achievement.frost_trail.title", comment: ""),
-            subtitle: NSLocalizedString("achievement.frost_trail.subtitle", comment: ""),
+            titleKey: "achievement.frost_trail.title",
+            subtitleKey: "achievement.frost_trail.subtitle",
             icon: "❄️",
             threshold: 10
         ),
         Achievement(
             id: "north-star",
-            title: NSLocalizedString("achievement.north_star.title", comment: ""),
-            subtitle: NSLocalizedString("achievement.north_star.subtitle", comment: ""),
+            titleKey: "achievement.north_star.title",
+            subtitleKey: "achievement.north_star.subtitle",
             icon: "🌟",
             threshold: 25
         ),
         Achievement(
             id: "aurora-leader",
-            title: NSLocalizedString("achievement.aurora_leader.title", comment: ""),
-            subtitle: NSLocalizedString("achievement.aurora_leader.subtitle", comment: ""),
+            titleKey: "achievement.aurora_leader.title",
+            subtitleKey: "achievement.aurora_leader.subtitle",
             icon: "🛷",
             threshold: 50
         ),
         Achievement(
             id: "legend",
-            title: NSLocalizedString("achievement.legend.title", comment: ""),
-            subtitle: NSLocalizedString("achievement.legend.subtitle", comment: ""),
+            titleKey: "achievement.legend.title",
+            subtitleKey: "achievement.legend.subtitle",
             icon: "👑",
             threshold: 100
         )

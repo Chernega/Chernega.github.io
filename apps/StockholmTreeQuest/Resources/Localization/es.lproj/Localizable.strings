@@ -21,9 +21,20 @@
 "friends.headline" = "Tu equipo festivo";
 "friends.chart.title" = "Brillo global";
 "friends.chart.subtitle" = "Árboles hallados este mes";
+"friends.chart.empty" = "Invita amigos desde Game Center para iluminar este gráfico.";
 "friends.row.trees" = "árboles";
 "friends.detail.trees" = "árboles vistos";
 "friends.detail.timeline" = "Bitácora";
+"friends.detail.no_visits" = "Sin aventuras aún";
+"friends.detail.no_visits.subtitle" = "Cuando tu amigo empiece a marcar evergreens, su viaje aparecerá aquí.";
+"friends.refresh" = "Actualizar";
+"friends.loading" = "Sincronizando con Game Center";
+"friends.gamecenter.required" = "Conecta Game Center";
+"friends.gamecenter.description" = "Inicia sesión con tu perfil de Game Center para ver y retar a tu equipo festivo.";
+"friends.gamecenter.sign_in" = "Iniciar sesión en Game Center";
+"friends.empty.title" = "Aún sin amigos festivos";
+"friends.empty.subtitle" = "Añade amigos desde Game Center para comparar descubrimientos.";
+"friends.empty.add_button" = "Abrir amigos de Game Center";
 
 "profile.title" = "Perfil";
 "profile.greeting" = "Hola, North Scout";
@@ -50,3 +61,7 @@
 "achievement.aurora_leader.subtitle" = "Celebra 50 árboles luminosos.";
 "achievement.legend.title" = "Leyenda de luces";
 "achievement.legend.subtitle" = "Captura 100 evergreens mágicos.";
+
+"auth.welcome.title" = "Inicia sesión en Tree Quest";
+"auth.welcome.subtitle" = "Usa tu Apple ID para sincronizar logros y descubrimientos festivos en todos tus dispositivos.";
+"auth.privacy" = "Solo almacenamos tu identificador seguro de Apple ID; no compartimos datos personales.";

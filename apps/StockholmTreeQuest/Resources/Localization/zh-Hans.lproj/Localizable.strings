@@ -21,9 +21,20 @@
 "friends.headline" = "你的节日小队";
 "friends.chart.title" = "全球光辉";
 "friends.chart.subtitle" = "本月发现的树";
+"friends.chart.empty" = "从 Game Center 邀请好友，让图表闪耀起来。";
 "friends.row.trees" = "棵树";
 "friends.detail.trees" = "发现的树";
 "friends.detail.timeline" = "冒险日志";
+"friends.detail.no_visits" = "暂时没有旅程";
+"friends.detail.no_visits.subtitle" = "当好友开始标记常青树时，他们的旅程会出现在这里。";
+"friends.refresh" = "刷新";
+"friends.loading" = "正在与 Game Center 同步";
+"friends.gamecenter.required" = "连接 Game Center";
+"friends.gamecenter.description" = "登录 Game Center 账号即可查看并挑战你的节日好友。";
+"friends.gamecenter.sign_in" = "登录 Game Center";
+"friends.empty.title" = "还没有节日好友";
+"friends.empty.subtitle" = "通过 Game Center 添加好友，比较彼此的发现。";
+"friends.empty.add_button" = "打开 Game Center 好友";
 
 "profile.title" = "资料";
 "profile.greeting" = "你好，North Scout";
@@ -50,3 +61,7 @@
 "achievement.aurora_leader.subtitle" = "庆祝50棵发光树木。";
 "achievement.legend.title" = "光芒传奇";
 "achievement.legend.subtitle" = "捕捉100棵魔法常青树。";
+
+"auth.welcome.title" = "登录 Tree Quest";
+"auth.welcome.subtitle" = "使用 Apple ID 在所有设备间同步成就与节日发现。";
+"auth.privacy" = "我们仅保存你的 Apple ID 安全标识，不会共享个人信息。";

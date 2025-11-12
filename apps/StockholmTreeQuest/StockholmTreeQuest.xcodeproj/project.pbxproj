@@ -3,14 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B6FAD65B60CF0864C36566F /* LocalizationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE02CAA01E56DBF8778EC34 /* LocalizationProvider.swift */; };
 		10C1700D3D9CDDD9A97EDE40 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */; };
 		1AC14C6500595B40AEE32D5A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7228423FAFA49E84FA87E921 /* Friend.swift */; };
 		22006FEAA9B89F526DCAC5D6 /* DiscoveryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A544AD58590AC1AC986B410 /* DiscoveryViewModelTests.swift */; };
 		2A80299B00E255D06E23DC77 /* ModelUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */; };
+		3AF9F80632AEE5E5B556FB68 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4939BD24539C9F40F155DC2 /* AuthService.swift */; };
 		3E05A5492658ADF66FF59FFE /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */; };
 		4E25372A477FE37B3469AD9F /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64857D384859CD25F3C59BFF /* FriendsView.swift */; };
 		4F93AD622CDC3EAB123B0A27 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EF8E883E822359D407880 /* ProfileView.swift */; };
@@ -23,11 +25,13 @@
 		95B7456DF59CE6A932D80C74 /* TreeStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA62FBED550A661CFBCC287 /* TreeStoreTests.swift */; };
 		A0FABF977AC6DE2F96CD1026 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */; };
 		A7C03D66A84D3B790AE59834 /* FriendsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219AC05CB52304FC6320324 /* FriendsServiceTests.swift */; };
+		AE847C4DC054F4058698CD10 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D1DA0A62A225263B46F493 /* GameCenterHelper.swift */; };
 		B424FB70C212D8E1019CBBB3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC7FE50F99131550725D3B /* LocationManager.swift */; };
 		BB13E6033D462D95DC074390 /* TreeMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A36954F4388755AF87EAAB /* TreeMarker.swift */; };
 		C1B6EA5E28164CF69A24EABC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82000CD2BC0F1FB8163014D4 /* RootView.swift */; };
 		D2C6659F98A9639C33741376 /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */; };
 		DDAC9A767466B21DEA21FD5F /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */; };
+		E4C8A70CED7E7E4645A7C61D /* Friend+GameCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41491627C881B6BFA4C1DB51 /* Friend+GameCenter.swift */; };
 		F488337AE2DD647FB49F5468 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88433FD7A344CC105E0906F9 /* AppTheme.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,10 +47,12 @@
 
 /* Begin PBXFileReference section */
 		26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
-		3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockholmTreeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StockholmTreeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A20508E314C9D272EAE8AB /* Localization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Localization; path = Resources/Localization; sourceTree = SOURCE_ROOT; };
 		37A36954F4388755AF87EAAB /* TreeMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMarker.swift; sourceTree = "<group>"; };
 		400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockholmTreeQuestApp.swift; sourceTree = "<group>"; };
+		41491627C881B6BFA4C1DB51 /* Friend+GameCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Friend+GameCenter.swift"; sourceTree = "<group>"; };
+		41D1DA0A62A225263B46F493 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		5219AC05CB52304FC6320324 /* FriendsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsServiceTests.swift; sourceTree = "<group>"; };
 		5A544AD58590AC1AC986B410 /* DiscoveryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModelTests.swift; sourceTree = "<group>"; };
 		5FAAB25F756A2E0542C68317 /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
@@ -61,10 +67,12 @@
 		AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtilityTests.swift; sourceTree = "<group>"; };
+		C4939BD24539C9F40F155DC2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		E0C736C1B254E821F590E287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockholmTreeQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StockholmTreeQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		FEE02CAA01E56DBF8778EC34 /* LocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationProvider.swift; sourceTree = "<group>"; };
 		FF55FC846B57E631B7D71229 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +80,10 @@
 		3653886183E02598ABB39930 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C4939BD24539C9F40F155DC2 /* AuthService.swift */,
 				5FAAB25F756A2E0542C68317 /* FriendsService.swift */,
+				41D1DA0A62A225263B46F493 /* GameCenterHelper.swift */,
+				FEE02CAA01E56DBF8778EC34 /* LocalizationProvider.swift */,
 				A0EC7FE50F99131550725D3B /* LocationManager.swift */,
 				A7570295563C7B0386541753 /* TreeStore.swift */,
 			);
@@ -85,6 +96,7 @@
 				FF55FC846B57E631B7D71229 /* Achievement.swift */,
 				AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */,
 				7228423FAFA49E84FA87E921 /* Friend.swift */,
+				41491627C881B6BFA4C1DB51 /* Friend+GameCenter.swift */,
 				37A36954F4388755AF87EAAB /* TreeMarker.swift */,
 			);
 			path = Models;
@@ -210,7 +222,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					AFF5D11D165E2B36EC62C347 = {
 						DevelopmentTeam = "";
@@ -227,6 +239,7 @@
 			);
 			mainGroup = 5F2D5BD30FB9B501B80EEDDA;
 			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -268,11 +281,15 @@
 				6835D9FE371F1D94AC628D9D /* Achievement.swift in Sources */,
 				DDAC9A767466B21DEA21FD5F /* AppLanguage.swift in Sources */,
 				F488337AE2DD647FB49F5468 /* AppTheme.swift in Sources */,
+				3AF9F80632AEE5E5B556FB68 /* AuthService.swift in Sources */,
 				3E05A5492658ADF66FF59FFE /* DiscoveryView.swift in Sources */,
 				D2C6659F98A9639C33741376 /* DiscoveryViewModel.swift in Sources */,
+				E4C8A70CED7E7E4645A7C61D /* Friend+GameCenter.swift in Sources */,
 				1AC14C6500595B40AEE32D5A /* Friend.swift in Sources */,
 				92F79D9DACEDCD132FB6D2DC /* FriendsService.swift in Sources */,
 				4E25372A477FE37B3469AD9F /* FriendsView.swift in Sources */,
+				AE847C4DC054F4058698CD10 /* GameCenterHelper.swift in Sources */,
+				0B6FAD65B60CF0864C36566F /* LocalizationProvider.swift in Sources */,
 				B424FB70C212D8E1019CBBB3 /* LocationManager.swift in Sources */,
 				4F93AD622CDC3EAB123B0A27 /* ProfileView.swift in Sources */,
 				A0FABF977AC6DE2F96CD1026 /* ProfileViewModel.swift in Sources */,
@@ -316,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StockholmTreeQuest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -358,7 +376,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -392,7 +409,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -407,13 +423,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -425,7 +440,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -459,7 +473,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -468,12 +481,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -485,6 +497,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StockholmTreeQuest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;

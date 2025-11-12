@@ -21,9 +21,20 @@
 "friends.headline" = "Your festive crew";
 "friends.chart.title" = "Global leader glow";
 "friends.chart.subtitle" = "Trees found this month";
+"friends.chart.empty" = "Invite friends from Game Center to light up this chart.";
 "friends.row.trees" = "trees";
 "friends.detail.trees" = "trees spotted";
 "friends.detail.timeline" = "Adventure log";
+"friends.detail.no_visits" = "No journeys yet";
+"friends.detail.no_visits.subtitle" = "Once your friend starts tagging evergreens, their timeline will sparkle here.";
+"friends.refresh" = "Refresh";
+"friends.loading" = "Syncing with Game Center";
+"friends.gamecenter.required" = "Connect Game Center";
+"friends.gamecenter.description" = "Sign in with your Game Center profile to see and challenge your holiday crew.";
+"friends.gamecenter.sign_in" = "Sign in to Game Center";
+"friends.empty.title" = "No festive friends yet";
+"friends.empty.subtitle" = "Add friends from Game Center to compare evergreen discoveries.";
+"friends.empty.add_button" = "Open Game Center friends";
 
 "profile.title" = "Profile";
 "profile.greeting" = "Hi, North Scout";
@@ -50,3 +61,7 @@
 "achievement.aurora_leader.subtitle" = "Celebrate 50 glowing trees.";
 "achievement.legend.title" = "Legend of lights";
 "achievement.legend.subtitle" = "Capture 100 magical evergreens.";
+
+"auth.welcome.title" = "Sign in to Tree Quest";
+"auth.welcome.subtitle" = "Use your Apple ID to keep achievements and festive discoveries in sync across devices.";
+"auth.privacy" = "We only store your secure Apple ID identifier—no personal details are shared.";
