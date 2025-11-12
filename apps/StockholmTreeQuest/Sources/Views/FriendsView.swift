@@ -1,7 +1,7 @@
 import SwiftUI
 import Charts
 import MapKit
-import AuthenticationServices
+// import AuthenticationServices // Temporarily disabled for device builds without Sign in with Apple entitlement
 
 struct FriendsView: View {
     @EnvironmentObject private var authService: AuthService
@@ -100,23 +100,23 @@ struct FriendsView: View {
                 .foregroundStyle(.white.opacity(0.7))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
-            SignInWithAppleButton(
-                .signIn,
-                onRequest: { request in
-                    request.requestedScopes = [.fullName, .email]
-                },
-                onCompletion: { result in
-                    Task { @MainActor in
-                        authService.handleAuthorization(result: result)
-                    }
-                }
-            )
-            .signInWithAppleButtonStyle(.white)
-            .frame(height: 52)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            .padding(.horizontal, 32)
-            .accessibilityIdentifier("friendsAppleSignInButton")
-            Text(localization.string("auth.privacy"))
+//            SignInWithAppleButton(
+//                .signIn,
+//                onRequest: { request in
+//                    request.requestedScopes = [.fullName, .email]
+//                },
+//                onCompletion: { result in
+//                    Task { @MainActor in
+//                        authService.handleAuthorization(result: result)
+//                    }
+//                }
+//            )
+//            .signInWithAppleButtonStyle(.white)
+//            .frame(height: 52)
+//            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+//            .padding(.horizontal, 32)
+//            .accessibilityIdentifier("friendsAppleSignInButton")
+            Text("Sign in with Apple temporarily disabled for local builds.")
                 .font(.footnote)
                 .foregroundStyle(.white.opacity(0.6))
                 .multilineTextAlignment(.center)
@@ -344,7 +344,15 @@ private struct FriendDetailView: View {
                     .stroke(AppTheme.frost, lineWidth: 1)
             )
         } else {
-            Map {
+            Map(initialPosition: visitMapPosition) {
+                ForEach(coverageZones) { zone in
+                    MapCircle(center: zone.coordinate, radius: zone.radius)
+                        .foregroundStyle(Gradient(colors: [AppTheme.coverageFill, AppTheme.coverageFill.opacity(0.05)]))
+                        .mapOverlayLevel(level: .aboveRoads)
+                    MapCircle(center: zone.coordinate, radius: zone.radius)
+                        .stroke(AppTheme.coverageStroke, lineWidth: 1)
+                        .mapOverlayLevel(level: .aboveLabels)
+                }
                 ForEach(friend.visits) { visit in
                     Annotation(visit.createdAt.formatted(.dateTime.month().day()), coordinate: visit.coordinate) {
                         Text("🎄")
@@ -393,6 +401,21 @@ private struct FriendDetailView: View {
                 }
             }
         }
+    }
+
+    private var coverageZones: [CoverageZone] {
+        CoverageZoneBuilder.zones(for: friend.visits.map(\.coordinate), radius: 100)
+    }
+
+    private var visitMapPosition: MapCameraPosition {
+        guard let first = friend.visits.first else {
+            return .automatic
+        }
+        let region = MKCoordinateRegion(
+            center: first.coordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )
+        return .region(region)
     }
 }
 

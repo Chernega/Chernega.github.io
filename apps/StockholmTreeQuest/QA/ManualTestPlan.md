@@ -4,7 +4,7 @@
 This plan covers functional, localization, and reliability validation for the Stockholm Tree Quest iOS application. The objective is to exercise every user flow, confirm graceful handling of edge cases, and ensure App Store readiness with zero known defects.
 
 ## Test Environment
-- **Devices:** iPhone 17 Pro (iOS 18 seed as available), iPhone 17 Pro Max (iOS 18 seed), iPhone 15 Pro (iOS 17.4)
+- **Devices:** iPhone 17 Pro (iOS 18), iPhone 17 Pro Max (iOS 18), iPhone 15 Pro (iOS 18)
 - **Network conditions:** Wi-Fi, LTE, and offline modes using Xcode Network Link Conditioner presets
 - **Build:** Debug and Release configurations generated via `xcodegen && xcodebuild`
 - **Data reset:** App deleted between major test passes to validate first-launch experiences

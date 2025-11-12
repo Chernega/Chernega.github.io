@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    @Binding var selectedLanguage: AppLanguage
     @EnvironmentObject private var treeStore: TreeStore
     @EnvironmentObject private var localization: LocalizationProvider
 
@@ -12,7 +11,6 @@ struct ProfileView: View {
                 header
                 progressCard
                 achievementsSection
-                languagePicker
             }
             .padding(20)
             .background {
@@ -99,18 +97,6 @@ struct ProfileView: View {
         }
     }
 
-    private var languagePicker: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text(localization.string("profile.language"))
-                .font(.headline)
-            Picker(localization.string("profile.language"), selection: $selectedLanguage) {
-                ForEach(AppLanguage.allCases) { language in
-                    Text(language.displayName).tag(language)
-                }
-            }
-            .pickerStyle(.segmented)
-        }
-    }
 }
 
 private struct AchievementCard: View {
@@ -160,7 +146,7 @@ private struct AchievementCard: View {
     let store = TreeStore()
     let localization = LocalizationProvider()
     localization.update(language: .english)
-    return ProfileView(viewModel: ProfileViewModel(treeStore: store), selectedLanguage: .constant(.english))
+    return ProfileView(viewModel: ProfileViewModel(treeStore: store))
         .environmentObject(store)
         .environmentObject(localization)
 }

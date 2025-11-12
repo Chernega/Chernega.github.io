@@ -8,13 +8,16 @@ final class DiscoveryViewModel: ObservableObject {
     @Published var pendingCoordinate: CLLocationCoordinate2D?
     @Published var noteText: String = ""
     @Published var isMapExpanded: Bool = true
+    @Published private(set) var cameraPosition: MapCameraPosition
 
     private let treeStore: TreeStore
     private let locationProvider: LocationProviding
+    private let coverageRadius: CLLocationDistance = 100
 
     init(treeStore: TreeStore, locationProvider: LocationProviding) {
         self.treeStore = treeStore
         self.locationProvider = locationProvider
+        self.cameraPosition = .region(treeStore.mapRegion)
     }
 
     var markers: [TreeMarker] {
@@ -25,19 +28,18 @@ final class DiscoveryViewModel: ObservableObject {
         treeStore.totalTreesDiscovered
     }
 
-    var currentRegion: Binding<MKCoordinateRegion> {
-        Binding(
-            get: { self.treeStore.mapRegion },
-            set: { self.treeStore.mapRegion = $0 }
-        )
+    var coverageZones: [CoverageZone] {
+        CoverageZoneBuilder.zones(for: markers.map(\.coordinate), radius: coverageRadius)
     }
 
     func focusOnUser() {
         guard let coordinate = locationProvider.lastLocation?.coordinate else { return }
-        treeStore.mapRegion = MKCoordinateRegion(
+        let region = MKCoordinateRegion(
             center: coordinate,
             span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
+        treeStore.mapRegion = region
+        cameraPosition = .region(region)
     }
 
     func prepareMarkerCreation(at coordinate: CLLocationCoordinate2D) {
@@ -57,5 +59,21 @@ final class DiscoveryViewModel: ObservableObject {
 
     func removeMarker(_ marker: TreeMarker) {
         treeStore.removeMarker(marker)
+    }
+
+    var currentMapCenter: CLLocationCoordinate2D {
+        treeStore.mapRegion.center
+    }
+
+    var zoneRadius: CLLocationDistance {
+        coverageRadius
+    }
+
+    func setCameraPosition(_ position: MapCameraPosition) {
+        cameraPosition = position
+    }
+
+    func updateVisibleRegion(_ region: MKCoordinateRegion) {
+        treeStore.mapRegion = region
     }
 }

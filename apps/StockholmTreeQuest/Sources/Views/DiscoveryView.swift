@@ -71,25 +71,41 @@ struct DiscoveryView: View {
     }
 
     private var mapSection: some View {
-        Map(
-            coordinateRegion: viewModel.currentRegion,
-            interactionModes: .all,
-            showsUserLocation: locationManager.lastLocation != nil,
-            annotationItems: viewModel.markers
-        ) { marker in
-            MapAnnotation(coordinate: marker.coordinate) {
-                TreeMarkerView(marker: marker, localization: localization)
+        MapReader { proxy in
+            ZStack {
+                Map(
+                    position: Binding(
+                        get: { viewModel.cameraPosition },
+                        set: { viewModel.setCameraPosition($0) }
+                    ),
+                    interactionModes: .all,
+                    content: {
+                        if locationManager.lastLocation != nil {
+                            UserAnnotation()
+                        }
+                        ForEach(viewModel.markers) { marker in
+                            Annotation("", coordinate: marker.coordinate) {
+                                TreeMarkerView(marker: marker, localization: localization)
+                            }
+                        }
+                    }
+                )
+                .onMapCameraChange(frequency: .continuous) { context in
+                    viewModel.updateVisibleRegion(context.region)
+                }
+                .mapStyle(.standard(elevation: .realistic))
+                .mapControls {
+                    MapUserLocationButton()
+                    MapCompass()
+                }
+
+                CoverageHeatmapOverlay(proxy: proxy, zones: viewModel.coverageZones)
             }
-        }
-        .mapStyle(.standard(elevation: .realistic))
-        .mapControls {
-            MapUserLocationButton()
-            MapCompass()
         }
         .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .overlay(alignment: .bottomTrailing) {
             Button {
-                let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentRegion.wrappedValue.center
+                let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentMapCenter
                 viewModel.prepareMarkerCreation(at: coordinate)
             } label: {
                 Label(localization.string("discover.add_tree"), systemImage: "plus")
@@ -173,6 +189,63 @@ private struct AddTreeSheet: View {
         }
         .padding(24)
         .background(AppTheme.gradient.opacity(0.85))
+    }
+}
+
+private struct CoverageHeatmapOverlay: View {
+    let proxy: MapProxy
+    let zones: [CoverageZone]
+
+    var body: some View {
+        ZStack {
+            ForEach(zones) { zone in
+                coverageCircle(for: zone)
+            }
+        }
+        .allowsHitTesting(false)
+    }
+
+    private func pointsPerMeter(at coordinate: CLLocationCoordinate2D) -> CGFloat? {
+        let offsetDelta = 0.0005
+        let offset = CLLocationCoordinate2D(latitude: coordinate.latitude + offsetDelta, longitude: coordinate.longitude)
+        guard
+            let basePoint = proxy.convert(coordinate, to: .local),
+            let offsetPoint = proxy.convert(offset, to: .local)
+        else { return nil }
+
+        let pointDistance = hypot(basePoint.x - offsetPoint.x, basePoint.y - offsetPoint.y)
+        let meters = coordinate.distance(to: offset)
+        guard meters > 0 else { return nil }
+
+        return pointDistance / CGFloat(meters)
+    }
+
+    @ViewBuilder
+    private func coverageCircle(for zone: CoverageZone) -> some View {
+        if
+            let center = proxy.convert(zone.coordinate, to: .local),
+            let pointsPerMeter = pointsPerMeter(at: zone.coordinate),
+            pointsPerMeter > 0
+        {
+            let radiusPoints = max(CGFloat(zone.radius) * pointsPerMeter, 12)
+
+            Circle()
+                .fill(AppTheme.coverageFill)
+                .frame(width: radiusPoints * 2, height: radiusPoints * 2)
+                .overlay(
+                    Circle()
+                        .stroke(AppTheme.coverageStroke, lineWidth: 2)
+                )
+                .position(center)
+        }
+    }
+}
+
+private extension CLLocationCoordinate2D {
+    func distance(to other: CLLocationCoordinate2D) -> CLLocationDistance {
+        let current = CLLocation(latitude: latitude, longitude: longitude)
+        let target = CLLocation(latitude: other.latitude, longitude: other.longitude)
+        return current.distance(from: target)
     }
 }
 

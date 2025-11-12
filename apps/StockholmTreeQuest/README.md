@@ -10,7 +10,7 @@ A SwiftUI-powered iOS application for capturing Christmas trees anywhere on the 
 
 ## Requirements
 - Xcode 15 or newer
-- iOS 17.4+ deployment target (validated on iPhone 15 Pro today and sized for upcoming iPhone 17 Pro / Pro Max hardware)
+- iOS 18.0+ deployment target (validated on iPhone 17 Pro / Pro Max hardware and ready for newer devices)
 
 ## Getting Started
 1. Install [XcodeGen](https://github.com/yonaskolb/XcodeGen) if you plan to generate the Xcode project from the provided `project.yml`:
@@ -32,7 +32,7 @@ Unit tests cover tree persistence, discovery logic, friend data loading, and gam
 xcodebuild test \
   -project StockholmTreeQuest.xcodeproj \
   -scheme StockholmTreeQuest \
-  -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.4'
+  -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=18.0'
 ```
 
 > Tip: when Apple ships iPhone 17 Pro / Pro Max simulators, swap the destination to their identifiers to keep parity with flagship hardware.

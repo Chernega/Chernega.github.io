@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		6B486353226A7E270E5FFD3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C736C1B254E821F590E287 /* Assets.xcassets */; };
 		76742945267BBD7C491ECA57 /* Localization in Resources */ = {isa = PBXBuildFile; fileRef = 30A20508E314C9D272EAE8AB /* Localization */; };
 		9039AAF7EBB6BA1AE3435EC7 /* TreeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7570295563C7B0386541753 /* TreeStore.swift */; };
+		90B6A9641C1358D3F0722AAD /* CoverageZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F998A819D86E7D9131757D /* CoverageZone.swift */; };
 		92F79D9DACEDCD132FB6D2DC /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAAB25F756A2E0542C68317 /* FriendsService.swift */; };
 		93E218BB88A04771C5A273D9 /* StockholmTreeQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */; };
 		95B7456DF59CE6A932D80C74 /* TreeStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA62FBED550A661CFBCC287 /* TreeStoreTests.swift */; };
@@ -47,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
-		3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StockholmTreeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockholmTreeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30A20508E314C9D272EAE8AB /* Localization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Localization; path = Resources/Localization; sourceTree = SOURCE_ROOT; };
 		37A36954F4388755AF87EAAB /* TreeMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMarker.swift; sourceTree = "<group>"; };
 		400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockholmTreeQuestApp.swift; sourceTree = "<group>"; };
@@ -66,11 +67,12 @@
 		A7570295563C7B0386541753 /* TreeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeStore.swift; sourceTree = "<group>"; };
 		AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B3F998A819D86E7D9131757D /* CoverageZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageZone.swift; sourceTree = "<group>"; };
 		BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtilityTests.swift; sourceTree = "<group>"; };
 		C4939BD24539C9F40F155DC2 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
 		E0C736C1B254E821F590E287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StockholmTreeQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockholmTreeQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		FEE02CAA01E56DBF8778EC34 /* LocalizationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationProvider.swift; sourceTree = "<group>"; };
 		FF55FC846B57E631B7D71229 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				FF55FC846B57E631B7D71229 /* Achievement.swift */,
 				AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */,
 				7228423FAFA49E84FA87E921 /* Friend.swift */,
+				B3F998A819D86E7D9131757D /* CoverageZone.swift */,
 				41491627C881B6BFA4C1DB51 /* Friend+GameCenter.swift */,
 				37A36954F4388755AF87EAAB /* TreeMarker.swift */,
 			);
@@ -222,12 +225,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-					AFF5D11D165E2B36EC62C347 = {
-						DevelopmentTeam = "";
-					};
-				};
+				LastUpgradeCheck = 2610;
 			};
 			buildConfigurationList = 7146284926D8E4A33A85CC5D /* Build configuration list for PBXProject "StockholmTreeQuest" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -239,7 +237,6 @@
 			);
 			mainGroup = 5F2D5BD30FB9B501B80EEDDA;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -296,6 +293,7 @@
 				C1B6EA5E28164CF69A24EABC /* RootView.swift in Sources */,
 				93E218BB88A04771C5A273D9 /* StockholmTreeQuestApp.swift in Sources */,
 				BB13E6033D462D95DC074390 /* TreeMarker.swift in Sources */,
+				90B6A9641C1358D3F0722AAD /* CoverageZone.swift in Sources */,
 				9039AAF7EBB6BA1AE3435EC7 /* TreeStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,8 +313,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -333,15 +332,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StockholmTreeQuest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tree Quest";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,8 +355,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -407,8 +406,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6F5D3K637X;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -423,12 +424,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -440,6 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -471,8 +474,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6F5D3K637X;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -481,11 +486,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -497,15 +503,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StockholmTreeQuest.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Tree Quest";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

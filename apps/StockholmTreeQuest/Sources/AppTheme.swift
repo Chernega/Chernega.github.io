@@ -10,6 +10,8 @@ enum AppTheme {
     static let glassBackground = Color.white.opacity(0.08)
     static let accent = Color(red: 0.94, green: 0.27, blue: 0.35)
     static let frost = Color.white.opacity(0.35)
+    static let coverageFill = Color.yellow.opacity(0.14)
+    static let coverageStroke = Color.yellow.opacity(0.35)
 
     static func configureAppearance() {
         let appearance = UINavigationBarAppearance()

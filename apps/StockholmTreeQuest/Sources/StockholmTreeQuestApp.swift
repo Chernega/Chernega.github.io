@@ -7,7 +7,6 @@ struct StockholmTreeQuestApp: App {
     @StateObject private var friendsService = FriendsService()
     @StateObject private var localizationProvider = LocalizationProvider()
     @StateObject private var authService = AuthService()
-    @AppStorage("selectedLanguage") private var selectedLanguage: AppLanguage = .english
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
@@ -22,20 +21,21 @@ struct StockholmTreeQuestApp: App {
                 .environmentObject(friendsService)
                 .environmentObject(localizationProvider)
                 .environmentObject(authService)
-                .environment(\.locale, selectedLanguage.locale)
+                .environment(\.locale, localizationProvider.language.locale)
                 .task {
                     await treeStore.load()
                     locationManager.requestAuthorization()
-                    localizationProvider.update(language: selectedLanguage)
+                    localizationProvider.useSystemLanguage()
                 }
                 .onChange(of: scenePhase) { _, newValue in
                     if newValue == .background {
                         Task { await treeStore.persist() }
                     }
                 }
-                .onChange(of: selectedLanguage) { _, newValue in
-                    localizationProvider.update(language: newValue)
-                }
+                .onReceive(
+                    NotificationCenter.default.publisher(for: NSLocale.currentLocaleDidChangeNotification),
+                    perform: { _ in localizationProvider.useSystemLanguage() }
+                )
                 .preferredColorScheme(.dark)
         }
     }

@@ -22,4 +22,25 @@ enum AppLanguage: String, CaseIterable, Identifiable, Codable {
     var locale: Locale {
         Locale(identifier: rawValue)
     }
+
+    static func resolve(from preferredIdentifiers: [String]) -> AppLanguage {
+        let mapping: [(language: AppLanguage, prefixes: [String])] = [
+            (.english, ["en"]),
+            (.spanish, ["es"]),
+            (.french, ["fr"]),
+            (.german, ["de"]),
+            (.simplifiedChinese, ["zh-hans", "zh"])
+        ]
+
+        for identifier in preferredIdentifiers {
+            let lowercased = identifier.lowercased()
+            if let match = mapping.first(where: { entry in
+                entry.prefixes.contains { prefix in lowercased.hasPrefix(prefix) }
+            })?.language {
+                return match
+            }
+        }
+
+        return .english
+    }
 }

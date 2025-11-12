@@ -6,7 +6,6 @@ struct RootView: View {
     @EnvironmentObject private var friendsService: FriendsService
     @EnvironmentObject private var localization: LocalizationProvider
     @EnvironmentObject private var authService: AuthService
-    @AppStorage("selectedLanguage") private var selectedLanguage: AppLanguage = .english
 
     var body: some View {
         NavigationStack {
@@ -22,7 +21,7 @@ struct RootView: View {
                         Label(localization.string("tab.friends"), systemImage: "person.3.fill")
                     }
 
-                ProfileView(viewModel: ProfileViewModel(treeStore: treeStore), selectedLanguage: $selectedLanguage)
+                ProfileView(viewModel: ProfileViewModel(treeStore: treeStore))
                     .tabItem {
                         Label(localization.string("tab.profile"), systemImage: "sparkles")
                     }

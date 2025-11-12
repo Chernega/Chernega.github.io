@@ -5,7 +5,7 @@ This checklist supplements the manual test plan with device-specific validations
 ## Primary Targets
 - **iPhone 17 Pro (iOS 18 seed and GA)**
 - **iPhone 17 Pro Max (iOS 18 seed and GA)**
-- **iPhone 15 Pro (iOS 17.4)** as the current production baseline
+- **iPhone 15 Pro (iOS 18)** as the current production baseline
 
 ## Validation Steps
 1. **Install & Launch**
