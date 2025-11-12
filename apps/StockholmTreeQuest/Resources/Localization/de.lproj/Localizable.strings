@@ -1,0 +1,52 @@
+"tab.discover" = "Entdecken";
+"tab.friends" = "Freunde";
+"tab.profile" = "Profil";
+
+"discover.title" = "Tree Quest";
+"discover.subtitle" = "Erfasse jeden festlichen Evergreen in deiner Nähe";
+"discover.total_trees" = "Markierte Bäume";
+"discover.friends_active" = "Elfen online";
+"discover.marker" = "Baum";
+"discover.add_tree" = "Baum markieren";
+"discover.timeline" = "Aurora-Zeitlinie";
+"discover.timeline.empty" = "Noch keine Bäume – tippe auf \"Baum markieren\" für deinen ersten Pin.";
+"discover.you" = "Du";
+
+"sheet.add_tree.title" = "Diesen Baum markieren";
+"sheet.add_tree.subtitle" = "Füge eine Notiz hinzu, damit du weißt, warum er besonders ist.";
+"sheet.add_tree.placeholder" = "Optionale Notiz";
+"sheet.add_tree.button" = "Erinnerung sichern";
+
+"friends.title" = "Crew";
+"friends.headline" = "Deine festliche Crew";
+"friends.chart.title" = "Globaler Glanz";
+"friends.chart.subtitle" = "Bäume dieses Monats";
+"friends.row.trees" = "Bäume";
+"friends.detail.trees" = "entdeckte Bäume";
+"friends.detail.timeline" = "Abenteuerprotokoll";
+
+"profile.title" = "Profil";
+"profile.greeting" = "Hi, North Scout";
+"profile.total_trees" = "entdeckte Bäume";
+"profile.mission" = "Lass den Planeten weiter mit funkelnden Evergreens erstrahlen.";
+"profile.level" = "Stern-Level";
+"profile.next_level" = "Fortschritt zum nächsten Abzeichen";
+"profile.energy" = "Festtagsenergie";
+"profile.achievements" = "Glänzende Erfolge";
+"profile.language" = "Sprache";
+"profile.status.sprout" = "Gletscher-Keim";
+"profile.status.orb" = "Frost-Orb";
+"profile.status.comet" = "Nord-Komet";
+"profile.status.aurora" = "Aurora-Kapitän";
+"profile.status.legend" = "Legende des Lichts";
+
+"achievement.first_tree.title" = "Erster Funken";
+"achievement.first_tree.subtitle" = "Markiere deinen ersten Winterbaum.";
+"achievement.frost_trail.title" = "Frostspur";
+"achievement.frost_trail.subtitle" = "Markiere 10 einzigartige Evergreens.";
+"achievement.north_star.title" = "Nordstern";
+"achievement.north_star.subtitle" = "Kartiere 25 leuchtende Kiefern.";
+"achievement.aurora_leader.title" = "Aurora-Anführer";
+"achievement.aurora_leader.subtitle" = "Feiere 50 leuchtende Bäume.";
+"achievement.legend.title" = "Legende des Lichts";
+"achievement.legend.subtitle" = "Erfasse 100 magische Evergreens.";

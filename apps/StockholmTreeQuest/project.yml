@@ -1,0 +1,41 @@
+name: StockholmTreeQuest
+options:
+  bundleIdPrefix: com.chernega
+targets:
+  StockholmTreeQuest:
+    type: application
+    platform: iOS
+    deploymentTarget: '17.4'
+    sources:
+      - path: Sources
+    resources:
+      - path: Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.chernega.StockholmTreeQuest
+        DEVELOPMENT_TEAM: ""
+        SWIFT_VERSION: 5.9
+        GENERATE_INFOPLIST_FILE: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        IPHONEOS_DEPLOYMENT_TARGET: 17.4
+        SUPPORTED_PLATFORMS: iphoneos iphonesimulator
+  StockholmTreeQuestTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: '17.4'
+    sources:
+      - path: Tests/StockholmTreeQuestTests
+    dependencies:
+      - target: StockholmTreeQuest
+schemes:
+  StockholmTreeQuest:
+    build:
+      targets:
+        StockholmTreeQuest: all
+        StockholmTreeQuestTests: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - StockholmTreeQuestTests

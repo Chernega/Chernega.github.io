@@ -1,0 +1,52 @@
+"tab.discover" = "Descubrir";
+"tab.friends" = "Amigos";
+"tab.profile" = "Perfil";
+
+"discover.title" = "Tree Quest";
+"discover.subtitle" = "Registra cada abeto festivo a tu alrededor";
+"discover.total_trees" = "Árboles marcados";
+"discover.friends_active" = "Elfos conectados";
+"discover.marker" = "Árbol";
+"discover.add_tree" = "Marcar árbol";
+"discover.timeline" = "Línea aurora";
+"discover.timeline.empty" = "Aún no hay árboles — toca \"Marcar árbol\" para dejar tu primer pin.";
+"discover.you" = "Tú";
+
+"sheet.add_tree.title" = "Marca este árbol";
+"sheet.add_tree.subtitle" = "Añade una nota para recordar por qué es especial.";
+"sheet.add_tree.placeholder" = "Nota opcional";
+"sheet.add_tree.button" = "Guardar recuerdo";
+
+"friends.title" = "Equipo";
+"friends.headline" = "Tu equipo festivo";
+"friends.chart.title" = "Brillo global";
+"friends.chart.subtitle" = "Árboles hallados este mes";
+"friends.row.trees" = "árboles";
+"friends.detail.trees" = "árboles vistos";
+"friends.detail.timeline" = "Bitácora";
+
+"profile.title" = "Perfil";
+"profile.greeting" = "Hola, North Scout";
+"profile.total_trees" = "árboles descubiertos";
+"profile.mission" = "Sigue iluminando el planeta con evergreens brillantes.";
+"profile.level" = "Nivel estelar";
+"profile.next_level" = "Progreso al siguiente distintivo";
+"profile.energy" = "Energía navideña";
+"profile.achievements" = "Logros brillantes";
+"profile.language" = "Idioma";
+"profile.status.sprout" = "Brote glaciar";
+"profile.status.orb" = "Orbe de escarcha";
+"profile.status.comet" = "Cometa del norte";
+"profile.status.aurora" = "Capitán aurora";
+"profile.status.legend" = "Leyenda de luces";
+
+"achievement.first_tree.title" = "Primera chispa";
+"achievement.first_tree.subtitle" = "Marca tu primer árbol invernal.";
+"achievement.frost_trail.title" = "Rastro de escarcha";
+"achievement.frost_trail.subtitle" = "Marca 10 evergreens únicos.";
+"achievement.north_star.title" = "Estrella del norte";
+"achievement.north_star.subtitle" = "Cartografía 25 pinos brillantes.";
+"achievement.aurora_leader.title" = "Líder aurora";
+"achievement.aurora_leader.subtitle" = "Celebra 50 árboles luminosos.";
+"achievement.legend.title" = "Leyenda de luces";
+"achievement.legend.subtitle" = "Captura 100 evergreens mágicos.";

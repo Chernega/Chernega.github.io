@@ -1,0 +1,52 @@
+"tab.discover" = "Discover";
+"tab.friends" = "Friends";
+"tab.profile" = "Profile";
+
+"discover.title" = "Tree Quest";
+"discover.subtitle" = "Track every festive evergreen around you";
+"discover.total_trees" = "Trees tagged";
+"discover.friends_active" = "Elves online";
+"discover.marker" = "Tree";
+"discover.add_tree" = "Tag tree";
+"discover.timeline" = "Aurora timeline";
+"discover.timeline.empty" = "No trees yet — tap \"Tag tree\" to drop your first festive pin.";
+"discover.you" = "You";
+
+"sheet.add_tree.title" = "Mark this tree";
+"sheet.add_tree.subtitle" = "Add a note so you remember why this tree is special.";
+"sheet.add_tree.placeholder" = "Optional note";
+"sheet.add_tree.button" = "Save memory";
+
+"friends.title" = "Crew";
+"friends.headline" = "Your festive crew";
+"friends.chart.title" = "Global leader glow";
+"friends.chart.subtitle" = "Trees found this month";
+"friends.row.trees" = "trees";
+"friends.detail.trees" = "trees spotted";
+"friends.detail.timeline" = "Adventure log";
+
+"profile.title" = "Profile";
+"profile.greeting" = "Hi, North Scout";
+"profile.total_trees" = "trees discovered";
+"profile.mission" = "Keep lighting up the planet with dazzling evergreens.";
+"profile.level" = "Star level";
+"profile.next_level" = "Progress to the next badge";
+"profile.energy" = "Holiday energy";
+"profile.achievements" = "Shining achievements";
+"profile.language" = "Language";
+"profile.status.sprout" = "Glacial Sprout";
+"profile.status.orb" = "Frost Orb";
+"profile.status.comet" = "North Comet";
+"profile.status.aurora" = "Aurora Captain";
+"profile.status.legend" = "Legend of Lights";
+
+"achievement.first_tree.title" = "First sparkle";
+"achievement.first_tree.subtitle" = "Tag your very first winter tree.";
+"achievement.frost_trail.title" = "Frost trail";
+"achievement.frost_trail.subtitle" = "Mark 10 unique evergreens.";
+"achievement.north_star.title" = "North star";
+"achievement.north_star.subtitle" = "Chart 25 shining pines.";
+"achievement.aurora_leader.title" = "Aurora leader";
+"achievement.aurora_leader.subtitle" = "Celebrate 50 glowing trees.";
+"achievement.legend.title" = "Legend of lights";
+"achievement.legend.subtitle" = "Capture 100 magical evergreens.";
