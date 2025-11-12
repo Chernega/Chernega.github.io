@@ -32,6 +32,8 @@
 "friends.gamecenter.required" = "Connect Game Center";
 "friends.gamecenter.description" = "Sign in with your Game Center profile to see and challenge your holiday crew.";
 "friends.gamecenter.sign_in" = "Sign in to Game Center";
+"friends.apple_sign_in.title" = "Sign in to connect with friends";
+"friends.apple_sign_in.subtitle" = "Use your Apple ID only when you want to compete and collaborate with your crew.";
 "friends.empty.title" = "No festive friends yet";
 "friends.empty.subtitle" = "Add friends from Game Center to compare evergreen discoveries.";
 "friends.empty.add_button" = "Open Game Center friends";

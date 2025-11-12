@@ -32,6 +32,8 @@
 "friends.gamecenter.required" = "Game Center verbinden";
 "friends.gamecenter.description" = "Melde dich mit deinem Game-Center-Profil an, um deine festliche Crew zu sehen und herauszufordern.";
 "friends.gamecenter.sign_in" = "Bei Game Center anmelden";
+"friends.apple_sign_in.title" = "Melde dich an, um dich mit Freunden zu verbinden";
+"friends.apple_sign_in.subtitle" = "Verwende deine Apple-ID nur, wenn du mit deiner Crew konkurrieren oder zusammenarbeiten möchtest.";
 "friends.empty.title" = "Noch keine festlichen Freunde";
 "friends.empty.subtitle" = "Füge Freunde aus Game Center hinzu, um Fichtenfunde zu vergleichen.";
 "friends.empty.add_button" = "Game-Center-Freunde öffnen";

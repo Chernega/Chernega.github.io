@@ -1,8 +1,10 @@
 import SwiftUI
 import Charts
 import MapKit
+import AuthenticationServices
 
 struct FriendsView: View {
+    @EnvironmentObject private var authService: AuthService
     @EnvironmentObject private var friendsService: FriendsService
     @EnvironmentObject private var localization: LocalizationProvider
     @State private var isRefreshing = false
@@ -17,7 +19,7 @@ struct FriendsView: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                if friendsService.isAuthenticated && !friendsService.isLoading {
+                if authService.isSignedIn && friendsService.isAuthenticated && !friendsService.isLoading {
                     Button(action: refresh) {
                         Label(localization.string("friends.refresh"), systemImage: "arrow.clockwise")
                             .labelStyle(.titleAndIcon)
@@ -32,8 +34,10 @@ struct FriendsView: View {
 
     @ViewBuilder
     private var content: some View {
-        if !friendsService.isAuthenticated {
-            authenticationPrompt
+        if !authService.isSignedIn {
+            appleSignInPrompt
+        } else if !friendsService.isAuthenticated {
+            gameCenterPrompt
         } else if friendsService.isLoading && friendsService.friends.isEmpty {
             ProgressView(localization.string("friends.loading"))
                 .progressViewStyle(.circular)
@@ -55,7 +59,7 @@ struct FriendsView: View {
         }
     }
 
-    private var authenticationPrompt: some View {
+    private var gameCenterPrompt: some View {
         VStack(spacing: 20) {
             Image(systemName: "gamecontroller.fill")
                 .font(.system(size: 56))
@@ -78,6 +82,45 @@ struct FriendsView: View {
                     .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
                     .foregroundStyle(.white)
             }
+        }
+        .padding(32)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
+
+    private var appleSignInPrompt: some View {
+        VStack(spacing: 20) {
+            Image(systemName: "person.2.crop.square.stack")
+                .font(.system(size: 56))
+                .foregroundStyle(AppTheme.accent)
+            Text(localization.string("friends.apple_sign_in.title"))
+                .font(.title2.bold())
+                .multilineTextAlignment(.center)
+            Text(localization.string("friends.apple_sign_in.subtitle"))
+                .font(.callout)
+                .foregroundStyle(.white.opacity(0.7))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+            SignInWithAppleButton(
+                .signIn,
+                onRequest: { request in
+                    request.requestedScopes = [.fullName, .email]
+                },
+                onCompletion: { result in
+                    Task { @MainActor in
+                        authService.handleAuthorization(result: result)
+                    }
+                }
+            )
+            .signInWithAppleButtonStyle(.white)
+            .frame(height: 52)
+            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .padding(.horizontal, 32)
+            .accessibilityIdentifier("friendsAppleSignInButton")
+            Text(localization.string("auth.privacy"))
+                .font(.footnote)
+                .foregroundStyle(.white.opacity(0.6))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
         }
         .padding(32)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -193,7 +236,7 @@ struct FriendsView: View {
     }
 
     private func refresh() {
-        guard !isRefreshing else { return }
+        guard authService.isSignedIn, !isRefreshing else { return }
         isRefreshing = true
         Task {
             await friendsService.refresh()
@@ -202,7 +245,7 @@ struct FriendsView: View {
     }
 
     private func refreshIfNeeded() async {
-        guard friendsService.isAuthenticated else { return }
+        guard authService.isSignedIn, friendsService.isAuthenticated else { return }
         await friendsService.refresh()
     }
 }
@@ -357,7 +400,10 @@ private struct FriendDetailView: View {
     let localization = LocalizationProvider()
     localization.update(language: .english)
     let service = FriendsService(authenticationProvider: { true }, loader: { [] })
+    let authService = AuthService()
+    authService.signOut()
     return FriendsView()
+        .environmentObject(authService)
         .environmentObject(service)
         .environmentObject(localization)
 }

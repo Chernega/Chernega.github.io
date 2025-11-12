@@ -32,6 +32,8 @@
 "friends.gamecenter.required" = "Connecte Game Center";
 "friends.gamecenter.description" = "Connecte-toi avec ton profil Game Center pour voir et défier ton équipe festive.";
 "friends.gamecenter.sign_in" = "Se connecter à Game Center";
+"friends.apple_sign_in.title" = "Connecte-toi pour retrouver tes amis";
+"friends.apple_sign_in.subtitle" = "Utilise ton identifiant Apple uniquement quand tu veux rivaliser et collaborer avec ton équipe.";
 "friends.empty.title" = "Pas encore d'amis festifs";
 "friends.empty.subtitle" = "Ajoute des amis via Game Center pour comparer vos découvertes.";
 "friends.empty.add_button" = "Ouvrir les amis Game Center";

@@ -32,6 +32,8 @@
 "friends.gamecenter.required" = "连接 Game Center";
 "friends.gamecenter.description" = "登录 Game Center 账号即可查看并挑战你的节日好友。";
 "friends.gamecenter.sign_in" = "登录 Game Center";
+"friends.apple_sign_in.title" = "登录以与好友互动";
+"friends.apple_sign_in.subtitle" = "只在想与小队比拼或协作时再用 Apple ID 登录。";
 "friends.empty.title" = "还没有节日好友";
 "friends.empty.subtitle" = "通过 Game Center 添加好友，比较彼此的发现。";
 "friends.empty.add_button" = "打开 Game Center 好友";

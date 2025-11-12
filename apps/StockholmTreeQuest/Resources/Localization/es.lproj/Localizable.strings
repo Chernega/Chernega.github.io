@@ -32,6 +32,8 @@
 "friends.gamecenter.required" = "Conecta Game Center";
 "friends.gamecenter.description" = "Inicia sesión con tu perfil de Game Center para ver y retar a tu equipo festivo.";
 "friends.gamecenter.sign_in" = "Iniciar sesión en Game Center";
+"friends.apple_sign_in.title" = "Inicia sesión para conectarte con amigos";
+"friends.apple_sign_in.subtitle" = "Usa tu Apple ID solo cuando quieras competir y colaborar con tu equipo.";
 "friends.empty.title" = "Aún sin amigos festivos";
 "friends.empty.subtitle" = "Añade amigos desde Game Center para comparar descubrimientos.";
 "friends.empty.add_button" = "Abrir amigos de Game Center";
