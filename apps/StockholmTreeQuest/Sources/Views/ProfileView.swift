@@ -16,7 +16,7 @@ struct ProfileView: View {
             .background {
                 AppTheme.gradient.ignoresSafeArea()
             }
-            .onChange(of: treeStore.markers) { _ in
+            .onChange(of: treeStore.markers) { _, _ in
                 viewModel.recalculate()
             }
         }

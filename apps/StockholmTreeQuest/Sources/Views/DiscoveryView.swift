@@ -145,7 +145,9 @@ struct DiscoveryView: View {
                     HStack(spacing: 12) {
                         ForEach(viewModel.markers) { marker in
                             TimelineCard(marker: marker, localization: localization) {
-                                viewModel.removeMarker(marker)
+                                withAnimation(.easeInOut) {
+                                    viewModel.removeMarker(marker)
+                                }
                             }
                         }
                     }

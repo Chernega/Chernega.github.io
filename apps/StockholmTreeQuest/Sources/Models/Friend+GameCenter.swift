@@ -3,8 +3,10 @@ import GameKit
 extension Friend {
     init(gameCenterPlayer player: GKPlayer) {
         let emoji = Friend.makeEmoji(from: player)
+        let teamPlayerID = player.teamPlayerID
+        let identifier = teamPlayerID.isEmpty ? player.gamePlayerID : teamPlayerID
         self.init(
-            id: player.teamPlayerID ?? player.gamePlayerID,
+            id: identifier,
             displayName: player.displayName,
             avatar: emoji,
             totalTrees: 0,

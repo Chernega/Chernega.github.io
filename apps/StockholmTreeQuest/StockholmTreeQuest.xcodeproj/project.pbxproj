@@ -338,6 +338,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,6 +510,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

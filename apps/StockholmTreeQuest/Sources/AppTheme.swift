@@ -13,6 +13,7 @@ enum AppTheme {
     static let coverageFill = Color.yellow.opacity(0.14)
     static let coverageStroke = Color.yellow.opacity(0.35)
 
+    @MainActor
     static func configureAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()

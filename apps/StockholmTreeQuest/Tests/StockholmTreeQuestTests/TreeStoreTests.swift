@@ -4,26 +4,12 @@ import MapKit
 
 @MainActor
 final class TreeStoreTests: XCTestCase {
-    private var temporaryDirectory: URL!
-
-    override func setUpWithError() throws {
-        try super.setUpWithError()
-        temporaryDirectory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-    }
-
-    override func tearDownWithError() throws {
-        if let temporaryDirectory {
-            try? FileManager.default.removeItem(at: temporaryDirectory)
-        }
-        temporaryDirectory = nil
-        try super.tearDownWithError()
-    }
 
     func testAddMarkerPlacesNewestAtBeginning() {
-        let store = TreeStore(
-            baseDirectory: temporaryDirectory,
-            persistHandler: { _ in }
-        )
+        let directory = Self.makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+
+        let store = TreeStore(baseDirectory: directory, persistHandler: { _ in })
 
         store.addMarker(at: CLLocationCoordinate2D(latitude: 1, longitude: 1), note: "First")
         store.addMarker(at: CLLocationCoordinate2D(latitude: 2, longitude: 2), note: "Second")
@@ -34,6 +20,9 @@ final class TreeStoreTests: XCTestCase {
 
     func testPersistAndLoadRoundTripsMarkersSortedByCreationDate() async throws {
         let fileName = "tree_store.json"
+        let directory = Self.makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
 
@@ -43,7 +32,6 @@ final class TreeStoreTests: XCTestCase {
         second.createdAt = Date(timeIntervalSince1970: 20)
 
         let existing = [first, second]
-        let directory = temporaryDirectory ?? FileManager.default.temporaryDirectory
         let url = directory.appendingPathComponent(fileName)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let data = try encoder.encode(existing)
@@ -64,7 +52,9 @@ final class TreeStoreTests: XCTestCase {
 
     func testPersistWritesFileToDisk() async throws {
         let fileName = "persist_test.json"
-        let directory = temporaryDirectory ?? FileManager.default.temporaryDirectory
+        let directory = Self.makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+
         let store = TreeStore(
             baseDirectory: directory,
             fileName: fileName,
@@ -83,7 +73,9 @@ final class TreeStoreTests: XCTestCase {
 
     func testLoadHandlesMissingFileGracefully() async {
         let fileName = "missing.json"
-        let directory = temporaryDirectory ?? FileManager.default.temporaryDirectory
+        let directory = Self.makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+
         let store = TreeStore(
             baseDirectory: directory,
             fileName: fileName,
@@ -93,5 +85,10 @@ final class TreeStoreTests: XCTestCase {
         await store.load()
 
         XCTAssertTrue(store.markers.isEmpty)
+    }
+
+    private static func makeTemporaryDirectory() -> URL {
+        let base = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        return base.appendingPathComponent(UUID().uuidString, isDirectory: true)
     }
 }

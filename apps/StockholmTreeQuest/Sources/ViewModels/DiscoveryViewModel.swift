@@ -1,6 +1,7 @@
 import Foundation
 import MapKit
 import SwiftUI
+import Combine
 
 @MainActor
 final class DiscoveryViewModel: ObservableObject {
@@ -9,23 +10,28 @@ final class DiscoveryViewModel: ObservableObject {
     @Published var noteText: String = ""
     @Published var isMapExpanded: Bool = true
     @Published private(set) var cameraPosition: MapCameraPosition
+    @Published private(set) var markers: [TreeMarker] = []
 
     private let treeStore: TreeStore
     private let locationProvider: LocationProviding
     private let coverageRadius: CLLocationDistance = 100
+    private var cancellables = Set<AnyCancellable>()
 
     init(treeStore: TreeStore, locationProvider: LocationProviding) {
         self.treeStore = treeStore
         self.locationProvider = locationProvider
         self.cameraPosition = .region(treeStore.mapRegion)
-    }
-
-    var markers: [TreeMarker] {
-        treeStore.markers
+        markers = treeStore.markers
+        treeStore.$markers
+            .receive(on: RunLoop.main)
+            .sink { [weak self] newMarkers in
+                self?.markers = newMarkers
+            }
+            .store(in: &cancellables)
     }
 
     var totalTrees: Int {
-        treeStore.totalTreesDiscovered
+        markers.count
     }
 
     var coverageZones: [CoverageZone] {
