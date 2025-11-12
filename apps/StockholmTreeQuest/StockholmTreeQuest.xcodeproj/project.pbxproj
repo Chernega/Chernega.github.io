@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10C1700D3D9CDDD9A97EDE40 /* ProfileViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */; };
+		1AC14C6500595B40AEE32D5A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7228423FAFA49E84FA87E921 /* Friend.swift */; };
+		22006FEAA9B89F526DCAC5D6 /* DiscoveryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A544AD58590AC1AC986B410 /* DiscoveryViewModelTests.swift */; };
+		2A80299B00E255D06E23DC77 /* ModelUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */; };
+		3E05A5492658ADF66FF59FFE /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */; };
+		4E25372A477FE37B3469AD9F /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64857D384859CD25F3C59BFF /* FriendsView.swift */; };
+		4F93AD622CDC3EAB123B0A27 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885EF8E883E822359D407880 /* ProfileView.swift */; };
+		6835D9FE371F1D94AC628D9D /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF55FC846B57E631B7D71229 /* Achievement.swift */; };
+		6B486353226A7E270E5FFD3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0C736C1B254E821F590E287 /* Assets.xcassets */; };
+		76742945267BBD7C491ECA57 /* Localization in Resources */ = {isa = PBXBuildFile; fileRef = 30A20508E314C9D272EAE8AB /* Localization */; };
+		9039AAF7EBB6BA1AE3435EC7 /* TreeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7570295563C7B0386541753 /* TreeStore.swift */; };
+		92F79D9DACEDCD132FB6D2DC /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAAB25F756A2E0542C68317 /* FriendsService.swift */; };
+		93E218BB88A04771C5A273D9 /* StockholmTreeQuestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */; };
+		95B7456DF59CE6A932D80C74 /* TreeStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA62FBED550A661CFBCC287 /* TreeStoreTests.swift */; };
+		A0FABF977AC6DE2F96CD1026 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */; };
+		A7C03D66A84D3B790AE59834 /* FriendsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5219AC05CB52304FC6320324 /* FriendsServiceTests.swift */; };
+		B424FB70C212D8E1019CBBB3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC7FE50F99131550725D3B /* LocationManager.swift */; };
+		BB13E6033D462D95DC074390 /* TreeMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A36954F4388755AF87EAAB /* TreeMarker.swift */; };
+		C1B6EA5E28164CF69A24EABC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82000CD2BC0F1FB8163014D4 /* RootView.swift */; };
+		D2C6659F98A9639C33741376 /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */; };
+		DDAC9A767466B21DEA21FD5F /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */; };
+		F488337AE2DD647FB49F5468 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88433FD7A344CC105E0906F9 /* AppTheme.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D99AFFF7863568C040817E94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 515E72A92E06FA755B18AC22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFF5D11D165E2B36EC62C347;
+			remoteInfo = StockholmTreeQuest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
+		3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockholmTreeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30A20508E314C9D272EAE8AB /* Localization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Localization; path = Resources/Localization; sourceTree = SOURCE_ROOT; };
+		37A36954F4388755AF87EAAB /* TreeMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeMarker.swift; sourceTree = "<group>"; };
+		400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockholmTreeQuestApp.swift; sourceTree = "<group>"; };
+		5219AC05CB52304FC6320324 /* FriendsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsServiceTests.swift; sourceTree = "<group>"; };
+		5A544AD58590AC1AC986B410 /* DiscoveryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModelTests.swift; sourceTree = "<group>"; };
+		5FAAB25F756A2E0542C68317 /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
+		64857D384859CD25F3C59BFF /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		6AA62FBED550A661CFBCC287 /* TreeStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeStoreTests.swift; sourceTree = "<group>"; };
+		7228423FAFA49E84FA87E921 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		82000CD2BC0F1FB8163014D4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		88433FD7A344CC105E0906F9 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		885EF8E883E822359D407880 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A0EC7FE50F99131550725D3B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A7570295563C7B0386541753 /* TreeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeStore.swift; sourceTree = "<group>"; };
+		AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtilityTests.swift; sourceTree = "<group>"; };
+		D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModelTests.swift; sourceTree = "<group>"; };
+		E0C736C1B254E821F590E287 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockholmTreeQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		FF55FC846B57E631B7D71229 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3653886183E02598ABB39930 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5FAAB25F756A2E0542C68317 /* FriendsService.swift */,
+				A0EC7FE50F99131550725D3B /* LocationManager.swift */,
+				A7570295563C7B0386541753 /* TreeStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		45B8EA0B2985DEB63656B482 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF55FC846B57E631B7D71229 /* Achievement.swift */,
+				AA3A7C4396831F3A0524B7CF /* AppLanguage.swift */,
+				7228423FAFA49E84FA87E921 /* Friend.swift */,
+				37A36954F4388755AF87EAAB /* TreeMarker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5F2D5BD30FB9B501B80EEDDA = {
+			isa = PBXGroup;
+			children = (
+				30A20508E314C9D272EAE8AB /* Localization */,
+				8DA04510C2F48CC778E4A0A4 /* Resources */,
+				8DDC6A569A1DCBA434F15534 /* Sources */,
+				9F9E278E1432893DCE1C309A /* StockholmTreeQuestTests */,
+				EEC1C2994FE08AC2530677A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8DA04510C2F48CC778E4A0A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E0C736C1B254E821F590E287 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8DDC6A569A1DCBA434F15534 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				88433FD7A344CC105E0906F9 /* AppTheme.swift */,
+				400948E059118DFE1F675A1A /* StockholmTreeQuestApp.swift */,
+				45B8EA0B2985DEB63656B482 /* Models */,
+				3653886183E02598ABB39930 /* Services */,
+				B22A9648DD482C72837651C8 /* ViewModels */,
+				E3D45630D035867FD4F2816F /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9F9E278E1432893DCE1C309A /* StockholmTreeQuestTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A544AD58590AC1AC986B410 /* DiscoveryViewModelTests.swift */,
+				5219AC05CB52304FC6320324 /* FriendsServiceTests.swift */,
+				BC9AD9F6561ED448B674B1A5 /* ModelUtilityTests.swift */,
+				D1DB7ED5E5EE6197B3F487E7 /* ProfileViewModelTests.swift */,
+				6AA62FBED550A661CFBCC287 /* TreeStoreTests.swift */,
+			);
+			name = StockholmTreeQuestTests;
+			path = Tests/StockholmTreeQuestTests;
+			sourceTree = "<group>";
+		};
+		B22A9648DD482C72837651C8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				26DB572B98E7FCDB7DA6D5F8 /* DiscoveryViewModel.swift */,
+				B226A1A9A655BE1177AC6FE5 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3D45630D035867FD4F2816F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD76F032D7152BCC45C8C77F /* DiscoveryView.swift */,
+				64857D384859CD25F3C59BFF /* FriendsView.swift */,
+				885EF8E883E822359D407880 /* ProfileView.swift */,
+				82000CD2BC0F1FB8163014D4 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EEC1C2994FE08AC2530677A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */,
+				E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFF5D11D165E2B36EC62C347 /* StockholmTreeQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D17DD83AC5EA81F552F80D2D /* Build configuration list for PBXNativeTarget "StockholmTreeQuest" */;
+			buildPhases = (
+				8BCE9985F28F897334C4DBC5 /* Sources */,
+				A0ACAA935EAB40D06D4DC22F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StockholmTreeQuest;
+			packageProductDependencies = (
+			);
+			productName = StockholmTreeQuest;
+			productReference = 3065C560715A3E21E04AF9A4 /* StockholmTreeQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C2D13B2702D40EF08EE45929 /* StockholmTreeQuestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8BBCE8360F68D107F712F09 /* Build configuration list for PBXNativeTarget "StockholmTreeQuestTests" */;
+			buildPhases = (
+				25D32601E2DC2A7181E3EF08 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93B9317E558DD7E76120B7D9 /* PBXTargetDependency */,
+			);
+			name = StockholmTreeQuestTests;
+			packageProductDependencies = (
+			);
+			productName = StockholmTreeQuestTests;
+			productReference = E8D66CDD1EFEECC294DD9D06 /* StockholmTreeQuestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		515E72A92E06FA755B18AC22 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					AFF5D11D165E2B36EC62C347 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = 7146284926D8E4A33A85CC5D /* Build configuration list for PBXProject "StockholmTreeQuest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5F2D5BD30FB9B501B80EEDDA;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFF5D11D165E2B36EC62C347 /* StockholmTreeQuest */,
+				C2D13B2702D40EF08EE45929 /* StockholmTreeQuestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0ACAA935EAB40D06D4DC22F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B486353226A7E270E5FFD3C /* Assets.xcassets in Resources */,
+				76742945267BBD7C491ECA57 /* Localization in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		25D32601E2DC2A7181E3EF08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22006FEAA9B89F526DCAC5D6 /* DiscoveryViewModelTests.swift in Sources */,
+				A7C03D66A84D3B790AE59834 /* FriendsServiceTests.swift in Sources */,
+				2A80299B00E255D06E23DC77 /* ModelUtilityTests.swift in Sources */,
+				10C1700D3D9CDDD9A97EDE40 /* ProfileViewModelTests.swift in Sources */,
+				95B7456DF59CE6A932D80C74 /* TreeStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BCE9985F28F897334C4DBC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6835D9FE371F1D94AC628D9D /* Achievement.swift in Sources */,
+				DDAC9A767466B21DEA21FD5F /* AppLanguage.swift in Sources */,
+				F488337AE2DD647FB49F5468 /* AppTheme.swift in Sources */,
+				3E05A5492658ADF66FF59FFE /* DiscoveryView.swift in Sources */,
+				D2C6659F98A9639C33741376 /* DiscoveryViewModel.swift in Sources */,
+				1AC14C6500595B40AEE32D5A /* Friend.swift in Sources */,
+				92F79D9DACEDCD132FB6D2DC /* FriendsService.swift in Sources */,
+				4E25372A477FE37B3469AD9F /* FriendsView.swift in Sources */,
+				B424FB70C212D8E1019CBBB3 /* LocationManager.swift in Sources */,
+				4F93AD622CDC3EAB123B0A27 /* ProfileView.swift in Sources */,
+				A0FABF977AC6DE2F96CD1026 /* ProfileViewModel.swift in Sources */,
+				C1B6EA5E28164CF69A24EABC /* RootView.swift in Sources */,
+				93E218BB88A04771C5A273D9 /* StockholmTreeQuestApp.swift in Sources */,
+				BB13E6033D462D95DC074390 /* TreeMarker.swift in Sources */,
+				9039AAF7EBB6BA1AE3435EC7 /* TreeStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93B9317E558DD7E76120B7D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFF5D11D165E2B36EC62C347 /* StockholmTreeQuest */;
+			targetProxy = D99AFFF7863568C040817E94 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		94817DE3A05ED73C15FA1677 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chernega.StockholmTreeQuestTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockholmTreeQuest.app/StockholmTreeQuest";
+			};
+			name = Debug;
+		};
+		BFE3D423DE64A45259E826C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tree Quest";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chernega.StockholmTreeQuest;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEFD634644FB72D19543F465 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chernega.StockholmTreeQuestTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockholmTreeQuest.app/StockholmTreeQuest";
+			};
+			name = Release;
+		};
+		D093676FF96AD93C958B2ADA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		DC16A3DB4C1A0C5B21E2BC44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		E6913C2A231AE4F74E578B95 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tree Quest";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Геолокация помогает отображать найденные ёлки даже после возврата в приложение.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chernega.StockholmTreeQuest;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7146284926D8E4A33A85CC5D /* Build configuration list for PBXProject "StockholmTreeQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D093676FF96AD93C958B2ADA /* Debug */,
+				DC16A3DB4C1A0C5B21E2BC44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D17DD83AC5EA81F552F80D2D /* Build configuration list for PBXNativeTarget "StockholmTreeQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFE3D423DE64A45259E826C8 /* Debug */,
+				E6913C2A231AE4F74E578B95 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F8BBCE8360F68D107F712F09 /* Build configuration list for PBXNativeTarget "StockholmTreeQuestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94817DE3A05ED73C15FA1677 /* Debug */,
+				CEFD634644FB72D19543F465 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 515E72A92E06FA755B18AC22 /* Project object */;
+}

@@ -1,6 +1,7 @@
 import XCTest
 @testable import StockholmTreeQuest
 
+@MainActor
 final class FriendsServiceTests: XCTestCase {
     func testLoadPopulatesFriends() async {
         let service = FriendsService()

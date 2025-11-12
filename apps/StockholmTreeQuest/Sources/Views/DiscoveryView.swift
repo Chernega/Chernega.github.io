@@ -70,26 +70,25 @@ struct DiscoveryView: View {
     }
 
     private var mapSection: some View {
-        Map(position: viewModel.currentRegion) {
-            if let location = locationManager.lastLocation {
-                UserAnnotation(coordinate: location.coordinate)
-            }
-
-            ForEach(viewModel.markers) { marker in
-                Annotation(marker.note.isEmpty ? NSLocalizedString("discover.marker", comment: "") : marker.note, coordinate: marker.coordinate) {
-                    TreeMarkerView(marker: marker)
-                }
+        Map(
+            coordinateRegion: viewModel.currentRegion,
+            interactionModes: .all,
+            showsUserLocation: locationManager.lastLocation != nil,
+            annotationItems: viewModel.markers
+        ) { marker in
+            MapAnnotation(coordinate: marker.coordinate) {
+                TreeMarkerView(marker: marker)
             }
         }
+        .mapStyle(.standard(elevation: .realistic))
         .mapControls {
             MapUserLocationButton()
             MapCompass()
         }
-        .mapStyle(.standard(elevation: .realistic))
         .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
         .overlay(alignment: .bottomTrailing) {
             Button {
-                let coordinate = locationManager.lastLocation?.coordinate ?? locationManager.region.center
+                let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentRegion.wrappedValue.center
                 viewModel.prepareMarkerCreation(at: coordinate)
             } label: {
                 Label(NSLocalizedString("discover.add_tree", comment: ""), systemImage: "plus")
@@ -103,7 +102,7 @@ struct DiscoveryView: View {
             .padding(20)
         }
         .frame(height: 360)
-        .contentMargins(EdgeInsets(top: 12, leading: 12, bottom: 64, trailing: 12))
+        .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
     }
 
     private var timeline: some View {
@@ -250,21 +249,17 @@ private struct TreeMarkerView: View {
     }
 }
 
-private struct UserAnnotation: MapContent {
-    var coordinate: CLLocationCoordinate2D
-
-    var body: some MapContent {
-        Annotation(NSLocalizedString("discover.you", comment: ""), coordinate: coordinate) {
-            ZStack {
-                Circle()
-                    .fill(Color.white)
-                    .frame(width: 22, height: 22)
-                Circle()
-                    .fill(AppTheme.accent)
-                    .frame(width: 12, height: 12)
-            }
-            .shadow(color: AppTheme.accent.opacity(0.6), radius: 8)
+private struct UserAnnotationView: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Color.white)
+                .frame(width: 22, height: 22)
+            Circle()
+                .fill(AppTheme.accent)
+                .frame(width: 12, height: 12)
         }
+        .shadow(color: AppTheme.accent.opacity(0.6), radius: 8)
     }
 }
 

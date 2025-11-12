@@ -25,20 +25,18 @@ final class DiscoveryViewModel: ObservableObject {
         treeStore.totalTreesDiscovered
     }
 
-    var currentRegion: Binding<MapCameraPosition> {
+    var currentRegion: Binding<MKCoordinateRegion> {
         Binding(
-            get: { self.treeStore.cameraPosition },
-            set: { self.treeStore.cameraPosition = $0 }
+            get: { self.treeStore.mapRegion },
+            set: { self.treeStore.mapRegion = $0 }
         )
     }
 
     func focusOnUser() {
         guard let coordinate = locationProvider.lastLocation?.coordinate else { return }
-        treeStore.cameraPosition = .region(
-            MKCoordinateRegion(
-                center: coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            )
+        treeStore.mapRegion = MKCoordinateRegion(
+            center: coordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         )
     }
 

@@ -3,6 +3,7 @@ import CoreLocation
 import MapKit
 @testable import StockholmTreeQuest
 
+@MainActor
 final class DiscoveryViewModelTests: XCTestCase {
     private final class MockLocationProvider: LocationProviding {
         var lastLocation: CLLocation?
@@ -47,13 +48,9 @@ final class DiscoveryViewModelTests: XCTestCase {
 
         viewModel.focusOnUser()
 
-        if case let .region(region) = store.cameraPosition {
-            XCTAssertEqual(region.center.latitude, 59.3, accuracy: 0.0001)
-            XCTAssertEqual(region.center.longitude, 18.0, accuracy: 0.0001)
-            XCTAssertEqual(region.span.latitudeDelta, 0.01, accuracy: 0.0001)
-            XCTAssertEqual(region.span.longitudeDelta, 0.01, accuracy: 0.0001)
-        } else {
-            XCTFail("Expected region camera position")
-        }
+        XCTAssertEqual(store.mapRegion.center.latitude, 59.3, accuracy: 0.0001)
+        XCTAssertEqual(store.mapRegion.center.longitude, 18.0, accuracy: 0.0001)
+        XCTAssertEqual(store.mapRegion.span.latitudeDelta, 0.01, accuracy: 0.0001)
+        XCTAssertEqual(store.mapRegion.span.longitudeDelta, 0.01, accuracy: 0.0001)
     }
 }

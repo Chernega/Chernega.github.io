@@ -14,7 +14,9 @@ struct ProfileView: View {
                 languagePicker
             }
             .padding(20)
-            .background(AppTheme.gradient.ignoresSafeArea())
+            .background {
+                AppTheme.gradient.ignoresSafeArea()
+            }
             .onChange(of: treeStore.markers) { _ in
                 viewModel.recalculate()
             }
@@ -134,12 +136,16 @@ private struct AchievementCard: View {
         .padding(18)
         .frame(maxWidth: .infinity, minHeight: 140)
         .background(
-            ZStack {
-                AppTheme.glassBackground
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(AppTheme.glassBackground)
+        )
+        .overlay(
+            Group {
                 if isUnlocked {
                     LinearGradient(colors: [AppTheme.accent.opacity(0.3), .clear], startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
                 }
-            }, in: RoundedRectangle(cornerRadius: 24, style: .continuous)
+            }
         )
         .overlay(
             RoundedRectangle(cornerRadius: 24, style: .continuous)

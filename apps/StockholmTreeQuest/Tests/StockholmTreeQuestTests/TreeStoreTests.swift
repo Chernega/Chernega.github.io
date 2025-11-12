@@ -2,6 +2,7 @@ import XCTest
 import MapKit
 @testable import StockholmTreeQuest
 
+@MainActor
 final class TreeStoreTests: XCTestCase {
     private var temporaryDirectory: URL!
 

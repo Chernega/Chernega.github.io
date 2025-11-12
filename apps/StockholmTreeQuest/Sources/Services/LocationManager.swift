@@ -42,10 +42,13 @@ final class LocationManager: NSObject, ObservableObject, LocationProviding {
 
 extension LocationManager: CLLocationManagerDelegate {
     nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        // Capture needed values before hopping to the main actor to avoid sending non-Sendable `manager`.
+        let status = manager.authorizationStatus
         Task { @MainActor [weak self] in
-            self?.authorizationStatus = manager.authorizationStatus
-            if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse {
-                manager.startUpdatingLocation()
+            self?.authorizationStatus = status
+            if status == .authorizedAlways || status == .authorizedWhenInUse {
+                // Use the main-actor-isolated instance property instead of the delegate's parameter
+                self?.manager.startUpdatingLocation()
             }
         }
     }

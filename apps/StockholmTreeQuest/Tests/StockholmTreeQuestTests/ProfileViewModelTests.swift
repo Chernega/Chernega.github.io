@@ -2,6 +2,7 @@ import XCTest
 import MapKit
 @testable import StockholmTreeQuest
 
+@MainActor
 final class ProfileViewModelTests: XCTestCase {
     private func makeStore(treeCount: Int) -> TreeStore {
         let store = TreeStore(persistHandler: { _ in })
