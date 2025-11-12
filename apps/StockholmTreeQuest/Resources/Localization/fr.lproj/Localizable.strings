@@ -1,0 +1,52 @@
+"tab.discover" = "Explorer";
+"tab.friends" = "Amis";
+"tab.profile" = "Profil";
+
+"discover.title" = "Tree Quest";
+"discover.subtitle" = "Repère chaque sapin festif autour de toi";
+"discover.total_trees" = "Arbres marqués";
+"discover.friends_active" = "Lutins en ligne";
+"discover.marker" = "Arbre";
+"discover.add_tree" = "Marquer l'arbre";
+"discover.timeline" = "Chronique aurorale";
+"discover.timeline.empty" = "Aucun arbre pour l'instant — appuie sur \"Marquer l'arbre\" pour poser ton premier pin.";
+"discover.you" = "Toi";
+
+"sheet.add_tree.title" = "Marquer cet arbre";
+"sheet.add_tree.subtitle" = "Ajoute une note pour te souvenir de ce qui le rend spécial.";
+"sheet.add_tree.placeholder" = "Note optionnelle";
+"sheet.add_tree.button" = "Sauver le souvenir";
+
+"friends.title" = "Équipe";
+"friends.headline" = "Ton équipe féerique";
+"friends.chart.title" = "Éclat mondial";
+"friends.chart.subtitle" = "Arbres trouvés ce mois-ci";
+"friends.row.trees" = "arbres";
+"friends.detail.trees" = "arbres repérés";
+"friends.detail.timeline" = "Journal d'aventure";
+
+"profile.title" = "Profil";
+"profile.greeting" = "Salut, North Scout";
+"profile.total_trees" = "arbres découverts";
+"profile.mission" = "Continue d'illuminer la planète avec des evergreens étincelants.";
+"profile.level" = "Niveau stellaire";
+"profile.next_level" = "Progrès vers le prochain badge";
+"profile.energy" = "Énergie de fête";
+"profile.achievements" = "Succès scintillants";
+"profile.language" = "Langue";
+"profile.status.sprout" = "Germination glacée";
+"profile.status.orb" = "Orbe de givre";
+"profile.status.comet" = "Comète du nord";
+"profile.status.aurora" = "Capitaine aurore";
+"profile.status.legend" = "Légende des lumières";
+
+"achievement.first_tree.title" = "Première étincelle";
+"achievement.first_tree.subtitle" = "Marque ton tout premier arbre d'hiver.";
+"achievement.frost_trail.title" = "Trace givrée";
+"achievement.frost_trail.subtitle" = "Marque 10 evergreens uniques.";
+"achievement.north_star.title" = "Étoile du nord";
+"achievement.north_star.subtitle" = "Cartographie 25 pins brillants.";
+"achievement.aurora_leader.title" = "Leader de l'aurore";
+"achievement.aurora_leader.subtitle" = "Célèbre 50 arbres lumineux.";
+"achievement.legend.title" = "Légende des lumières";
+"achievement.legend.subtitle" = "Capture 100 evergreens magiques.";
