@@ -1,4 +1,7 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 import MapKit
 
 struct DiscoveryView: View {
@@ -28,7 +31,8 @@ struct DiscoveryView: View {
             AddTreeSheet(noteText: $viewModel.noteText, localization: localization) {
                 viewModel.addMarker()
             }
-            .presentationDetents([.fraction(0.4)])
+            .presentationDetents([.fraction(0.43)])
+            .presentationCornerRadius(32)
             .presentationBackground(.ultraThinMaterial)
         }
     }
@@ -106,6 +110,7 @@ struct DiscoveryView: View {
         .overlay(alignment: .bottomTrailing) {
             Button {
                 let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentMapCenter
+                Haptics.impact(.medium)
                 viewModel.prepareMarkerCreation(at: coordinate)
             } label: {
                 Label(localization.string("discover.add_tree"), systemImage: "plus")
@@ -169,6 +174,7 @@ private struct AddTreeSheet: View {
                 .fill(Color.white.opacity(0.3))
                 .frame(width: 48, height: 4)
                 .frame(maxWidth: .infinity)
+                .padding(.top, 4)
             Text(localization.string("sheet.add_tree.title"))
                 .font(.title3.bold())
             Text(localization.string("sheet.add_tree.subtitle"))
@@ -179,7 +185,10 @@ private struct AddTreeSheet: View {
                 .submitLabel(.done)
                 .padding(14)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-            Button(action: onConfirm) {
+            Button {
+                Haptics.impact(.medium)
+                onConfirm()
+            } label: {
                 Label(localization.string("sheet.add_tree.button"), systemImage: "sparkles")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
@@ -190,7 +199,8 @@ private struct AddTreeSheet: View {
             }
         }
         .padding(24)
-        .background(AppTheme.gradient.opacity(0.85))
+        .background(AppTheme.gradient.opacity(0.95))
+        .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
     }
 }
 
@@ -286,7 +296,10 @@ private struct TimelineCard: View {
                 Text(marker.note.isEmpty ? localization.string("discover.marker") : marker.note)
                     .font(.headline)
                 Spacer()
-                Button(role: .destructive, action: onDelete) {
+                Button(role: .destructive) {
+                    Haptics.impact(.soft)
+                    onDelete()
+                } label: {
                     Image(systemName: "trash")
                         .foregroundStyle(.white.opacity(0.8))
                 }
@@ -343,6 +356,18 @@ private struct UserAnnotationView: View {
         .shadow(color: AppTheme.accent.opacity(0.6), radius: 8)
     }
 }
+
+#if canImport(UIKit)
+private enum Haptics {
+    static func impact(_ style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {
+        UIImpactFeedbackGenerator(style: style).impactOccurred()
+    }
+}
+#else
+private enum Haptics {
+    static func impact(_ style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {}
+}
+#endif
 
 #Preview {
     let treeStore = TreeStore()

@@ -7,7 +7,7 @@
 "discover.total_trees" = "Árboles marcados";
 "discover.friends_active" = "Elfos conectados";
 "discover.marker" = "Árbol";
-"discover.add_tree" = "Marcar árbol";
+"discover.add_tree" = "Agregar árbol";
 "discover.timeline" = "Línea aurora";
 "discover.timeline.empty" = "Aún no hay árboles — toca \"Marcar árbol\" para dejar tu primer pin.";
 "discover.you" = "Tú";

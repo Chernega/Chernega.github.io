@@ -8,26 +8,28 @@ struct RootView: View {
     @EnvironmentObject private var authService: AuthService
 
     var body: some View {
-        NavigationStack {
-            TabView {
-                DiscoveryView(treeStore: treeStore, locationManager: locationManager)
-                    .tabItem {
-                        Label(localization.string("tab.discover"), systemImage: "map")
-                    }
+        ZStack {
+            AppTheme.gradient.ignoresSafeArea()
+            NavigationStack {
+                TabView {
+                    DiscoveryView(treeStore: treeStore, locationManager: locationManager)
+                        .tabItem {
+                            Label(localization.string("tab.discover"), systemImage: "map")
+                        }
 
-                FriendsView()
-                    .environmentObject(friendsService)
-                    .tabItem {
-                        Label(localization.string("tab.friends"), systemImage: "person.3.fill")
-                    }
+                    FriendsView()
+                        .environmentObject(friendsService)
+                        .tabItem {
+                            Label(localization.string("tab.friends"), systemImage: "person.3.fill")
+                        }
 
-                ProfileView(viewModel: ProfileViewModel(treeStore: treeStore))
-                    .tabItem {
-                        Label(localization.string("tab.profile"), systemImage: "sparkles")
-                    }
+                    ProfileView(viewModel: ProfileViewModel(treeStore: treeStore))
+                        .tabItem {
+                            Label(localization.string("tab.profile"), systemImage: "sparkles")
+                        }
+                }
+                .tint(AppTheme.accent)
             }
-            .tint(AppTheme.accent)
-            .background(AppTheme.gradient.ignoresSafeArea())
         }
         .animation(.easeInOut(duration: 0.3), value: authService.isSignedIn)
         .onChange(of: authService.isSignedIn) { _, newValue in

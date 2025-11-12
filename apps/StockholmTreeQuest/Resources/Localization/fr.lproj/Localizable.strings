@@ -7,7 +7,7 @@
 "discover.total_trees" = "Arbres marqués";
 "discover.friends_active" = "Lutins en ligne";
 "discover.marker" = "Arbre";
-"discover.add_tree" = "Marquer l'arbre";
+"discover.add_tree" = "Ajouter un arbre";
 "discover.timeline" = "Chronique aurorale";
 "discover.timeline.empty" = "Aucun arbre pour l'instant — appuie sur \"Marquer l'arbre\" pour poser ton premier pin.";
 "discover.you" = "Toi";

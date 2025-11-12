@@ -6,16 +6,19 @@ struct ProfileView: View {
     @EnvironmentObject private var localization: LocalizationProvider
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                header
-                progressCard
-                achievementsSection
+        ZStack {
+            AppTheme.gradient.ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+                    header
+                    progressCard
+                    achievementsSection
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 32)
+                .padding(.top, 20)
             }
-            .padding(20)
-            .background {
-                AppTheme.gradient.ignoresSafeArea()
-            }
+            .safeAreaPadding(.bottom, 12)
             .onChange(of: treeStore.markers) { _, _ in
                 viewModel.recalculate()
             }

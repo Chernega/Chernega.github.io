@@ -7,7 +7,7 @@
 "discover.total_trees" = "已标记";
 "discover.friends_active" = "在线精灵";
 "discover.marker" = "树";
-"discover.add_tree" = "标记树木";
+"discover.add_tree" = "添加树木";
 "discover.timeline" = "极光时间线";
 "discover.timeline.empty" = "还没有树——点击“标记树木”留下第一枚图钉。";
 "discover.you" = "你";

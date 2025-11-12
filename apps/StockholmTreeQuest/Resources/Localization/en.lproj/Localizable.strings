@@ -7,7 +7,7 @@
 "discover.total_trees" = "Trees tagged";
 "discover.friends_active" = "Elves online";
 "discover.marker" = "Tree";
-"discover.add_tree" = "Tag tree";
+"discover.add_tree" = "Add tree";
 "discover.timeline" = "Aurora timeline";
 "discover.timeline.empty" = "No trees yet — tap \"Tag tree\" to drop your first festive pin.";
 "discover.you" = "You";
