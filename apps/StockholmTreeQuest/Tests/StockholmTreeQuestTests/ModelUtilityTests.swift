@@ -4,7 +4,7 @@ import CoreLocation
 
 final class ModelUtilityTests: XCTestCase {
     func testAchievementUnlocking() {
-        let achievement = Achievement(id: "test", title: "", subtitle: "", icon: "", threshold: 5)
+        let achievement = Achievement(id: "test", titleKey: "test.title", subtitleKey: "test.subtitle", icon: "", threshold: 5)
         XCTAssertFalse(achievement.isUnlocked(totalTrees: 4))
         XCTAssertTrue(achievement.isUnlocked(totalTrees: 5))
     }

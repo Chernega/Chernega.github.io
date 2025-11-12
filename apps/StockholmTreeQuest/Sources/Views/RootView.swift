@@ -93,9 +93,13 @@ private struct SignInWithAppleScreen: View {
                         .padding(.horizontal, 24)
                 }
 
-                SignInWithAppleButton(.signIn) { request in
-                    request.requestedScopes = [.fullName, .email]
-                } onCompletion: completion
+                SignInWithAppleButton(
+                    .signIn,
+                    onRequest: { request in
+                        request.requestedScopes = [.fullName, .email]
+                    },
+                    onCompletion: completion
+                )
                 .signInWithAppleButtonStyle(.white)
                 .frame(height: 52)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))

@@ -282,6 +282,7 @@ private struct FriendDetailView: View {
         }
     }
 
+    @ViewBuilder
     private var visitMap: some View {
         if friend.visits.isEmpty {
             VStack(spacing: 12) {

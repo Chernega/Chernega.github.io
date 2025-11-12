@@ -22,10 +22,12 @@ final class AuthService: ObservableObject {
         case .success(let authorization):
             if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
                 UserDefaults.standard.set(credential.user, forKey: userIDKey)
-                if let components = credential.fullName,
-                   let formatted = PersonNameComponentsFormatter().string(from: components),
-                   !formatted.trimmingCharacters(in: .whitespaces).isEmpty {
-                    displayName = formatted
+                if let components = credential.fullName {
+                    let formatter = PersonNameComponentsFormatter()
+                    let formatted = formatter.string(from: components)
+                    if !formatted.trimmingCharacters(in: .whitespaces).isEmpty {
+                        displayName = formatted
+                    }
                 }
                 isSignedIn = true
                 lastError = nil

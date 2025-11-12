@@ -12,23 +12,30 @@ final class GameCenterHelper: NSObject, GKGameCenterControllerDelegate {
     func authenticate(completion: @escaping (Result<Void, Error>) -> Void) {
         GKLocalPlayer.local.authenticateHandler = { [weak self] viewController, error in
             if let error {
-                completion(.failure(error))
+                Task { @MainActor in completion(.failure(error)) }
                 return
             }
 
             if let viewController {
-                self?.present(viewController)
+                Task { @MainActor [weak self] in
+                    self?.present(viewController)
+                }
             } else if GKLocalPlayer.local.isAuthenticated {
-                completion(.success(()))
+                Task { @MainActor in completion(.success(())) }
             } else {
-                completion(.failure(NSError(domain: "GameCenter", code: -1, userInfo: [NSLocalizedDescriptionKey: "Authentication cancelled"])) )
+                let cancellation = NSError(
+                    domain: "GameCenter",
+                    code: -1,
+                    userInfo: [NSLocalizedDescriptionKey: "Authentication cancelled"]
+                )
+                Task { @MainActor in completion(.failure(cancellation)) }
             }
         }
     }
 
     func presentFriendsList() {
         guard GKLocalPlayer.local.isAuthenticated else { return }
-        let controller = GKGameCenterViewController(state: .friendsList)
+        let controller = GKGameCenterViewController(state: .localPlayerFriendsList)
         controller.gameCenterDelegate = self
         present(controller)
     }
@@ -47,7 +54,9 @@ final class GameCenterHelper: NSObject, GKGameCenterControllerDelegate {
         topController.present(viewController, animated: true)
     }
 
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true)
+    nonisolated func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        Task { @MainActor in
+            gameCenterViewController.dismiss(animated: true)
+        }
     }
 }
