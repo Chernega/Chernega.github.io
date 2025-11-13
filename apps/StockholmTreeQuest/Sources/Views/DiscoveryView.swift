@@ -48,28 +48,18 @@ struct DiscoveryView: View {
                 showFullScreenMap = false
             }
         }
-        .onAppear { safeAreaInsets = SafeAreaInsetsProvider.currentInsets }
+        .task { @MainActor in safeAreaInsets = SafeAreaInsetsProvider.currentInsets() }
     }
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(localization.string("discover.title"))
-                        .font(.largeTitle.bold())
-                        .foregroundStyle(.white)
-                    Text(localization.string("discover.subtitle"))
-                        .font(.callout)
-                        .foregroundStyle(.white.opacity(0.7))
-                }
-                Spacer()
-                Button(action: viewModel.focusOnUser) {
-                    Image(systemName: "location.circle.fill")
-                        .font(.title2)
-                        .foregroundStyle(AppTheme.accent)
-                        .padding(12)
-                        .background(.ultraThinMaterial, in: Circle())
-                }
+            VStack(alignment: .leading, spacing: 4) {
+                Text(localization.string("discover.title"))
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(.white)
+                Text(localization.string("discover.subtitle"))
+                    .font(.callout)
+                    .foregroundStyle(.white.opacity(0.7))
             }
 
             HStack(spacing: 12) {
@@ -289,14 +279,11 @@ private struct InteractiveMapView: View {
                 }
                 .mapStyle(.standard(elevation: .realistic))
                 .mapControls {
-                    MapUserLocationButton()
                     MapCompass()
                 }
-                .simultaneousGesture(
-                    DragGesture(minimumDistance: 0).onEnded { value in
-                        if abs(value.translation.width) < 10 && abs(value.translation.height) < 10 {
-                            tapHandler(value.location)
-                        }
+                .gesture(
+                    SpatialTapGesture().onEnded { value in
+                        tapHandler(value.location)
                     }
                 )
 
@@ -308,36 +295,45 @@ private struct InteractiveMapView: View {
                         .position(point)
                 }
 
-                VStack(alignment: .leading, spacing: 10) {
+                HStack {
                     if isFullScreen, let onDismiss {
                         Button {
                             Haptics.impact(.soft)
                             onDismiss()
                         } label: {
-                            Label("Close", systemImage: "xmark")
-                                .labelStyle(.iconOnly)
-                                .font(.headline)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 8)
-                                .background(.ultraThinMaterial, in: Capsule())
+                            Image(systemName: "xmark")
+                                .font(.headline.weight(.semibold))
+                                .padding(10)
+                                .background(.ultraThinMaterial, in: Circle())
                         }
-                        .foregroundColor(.white)
                     } else if let onExpand {
                         Button {
                             Haptics.impact(.soft)
                             onExpand()
                         } label: {
-                            Label("Expand map", systemImage: "arrow.up.left.and.arrow.down.right")
-                                .labelStyle(.iconOnly)
+                            Image(systemName: "arrow.up.left.and.arrow.down.right")
                                 .font(.headline.weight(.semibold))
                                 .padding(10)
                                 .background(.ultraThinMaterial, in: Circle())
                         }
-                        .foregroundColor(.white)
+                    }
+
+                    Spacer()
+
+                    Button {
+                        Haptics.impact(.medium)
+                        locationManager.refreshLocation()
+                        viewModel.focusOnUser()
+                    } label: {
+                        Image(systemName: "location.circle.fill")
+                            .font(.title3)
+                            .padding(10)
+                            .background(.ultraThinMaterial, in: Circle())
                     }
                 }
+                .foregroundColor(.white)
                 .padding(.top, safeAreaInsets.top + 12)
-                .padding(.leading, 16)
+                .padding(.horizontal, 16)
             }
         }
         .clipShape(RoundedRectangle(cornerRadius: isFullScreen ? 0 : 28, style: .continuous))
@@ -428,18 +424,28 @@ private struct FrostedInfoCard: View {
     }
 }
 
+@MainActor
 private enum SafeAreaInsetsProvider {
-    static var currentInsets: EdgeInsets {
+    static func currentInsets() -> EdgeInsets {
         #if canImport(UIKit)
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
-            let inset = window.safeAreaInsets
-            return EdgeInsets(top: inset.top, leading: inset.left, bottom: inset.bottom, trailing: inset.right)
-        }
-        #endif
+        let inset = UIApplication.shared.keyWindow?.safeAreaInsets ?? .zero
+        return EdgeInsets(top: inset.top, leading: inset.left, bottom: inset.bottom, trailing: inset.right)
+        #else
         return EdgeInsets()
+        #endif
     }
 }
+#if canImport(UIKit)
+@MainActor
+private extension UIApplication {
+    var keyWindow: UIWindow? {
+        connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+    }
+}
+#endif
 
 private struct TimelineCard: View {
     let marker: TreeMarker

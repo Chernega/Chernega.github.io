@@ -39,6 +39,10 @@ final class LocationManager: NSObject, ObservableObject, LocationProviding {
         }
         manager.requestLocation()
     }
+
+    func refreshLocation() {
+        manager.requestLocation()
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {
