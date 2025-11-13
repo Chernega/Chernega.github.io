@@ -9,10 +9,13 @@ struct DiscoveryView: View {
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject private var friendsService: FriendsService
     @EnvironmentObject private var localization: LocalizationProvider
+    @State private var safeAreaInsets: EdgeInsets = .init()
 
     init(treeStore: TreeStore, locationManager: LocationManager) {
         _viewModel = StateObject(wrappedValue: DiscoveryViewModel(treeStore: treeStore, locationProvider: locationManager))
     }
+
+    @State private var showFullScreenMap = false
 
     var body: some View {
         ZStack {
@@ -31,10 +34,21 @@ struct DiscoveryView: View {
             AddTreeSheet(noteText: $viewModel.noteText, localization: localization) {
                 viewModel.addMarker()
             }
-            .presentationDetents([.fraction(0.43)])
+            .presentationDetents([.fraction(0.45), .medium])
             .presentationCornerRadius(32)
-            .presentationBackground(.ultraThinMaterial)
+            .presentationBackground(.clear)
         }
+        .fullScreenCover(isPresented: $showFullScreenMap) {
+            FullScreenMapView(
+                viewModel: viewModel,
+                locationManager: locationManager,
+                localization: localization,
+                safeAreaInsets: safeAreaInsets
+            ) {
+                showFullScreenMap = false
+            }
+        }
+        .onAppear { safeAreaInsets = SafeAreaInsetsProvider.currentInsets }
     }
 
     private var header: some View {
@@ -75,56 +89,14 @@ struct DiscoveryView: View {
     }
 
     private var mapSection: some View {
-        MapReader { proxy in
-            ZStack {
-                Map(
-                    position: Binding(
-                        get: { viewModel.cameraPosition },
-                        set: { viewModel.setCameraPosition($0) }
-                    ),
-                    interactionModes: .all,
-                    content: {
-                        if locationManager.lastLocation != nil {
-                            UserAnnotation()
-                        }
-                        ForEach(viewModel.markers) { marker in
-                            Annotation("", coordinate: marker.coordinate) {
-                                TreeMarkerView(marker: marker, localization: localization)
-                            }
-                        }
-                    }
-                )
-                .onMapCameraChange(frequency: .continuous) { context in
-                    viewModel.updateVisibleRegion(context.region)
-                }
-                .mapStyle(.standard(elevation: .realistic))
-                .mapControls {
-                    MapUserLocationButton()
-                    MapCompass()
-                }
-
-                CoverageHeatmapOverlay(proxy: proxy, zones: viewModel.coverageZones)
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
-        .overlay(alignment: .bottomTrailing) {
-            Button {
-                let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentMapCenter
-                Haptics.impact(.medium)
-                viewModel.prepareMarkerCreation(at: coordinate)
-            } label: {
-                Label(localization.string("discover.add_tree"), systemImage: "plus")
-                    .font(.headline)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 12)
-                    .background(AppTheme.accent.gradient.opacity(0.9))
-                    .clipShape(Capsule())
-                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
-                    .foregroundStyle(.white)
-            }
-            .padding(20)
-            .buttonStyle(.plain)
-        }
+        InteractiveMapView(
+            viewModel: viewModel,
+            locationManager: locationManager,
+            localization: localization,
+            safeAreaInsets: safeAreaInsets,
+            isFullScreen: false,
+            onExpand: { showFullScreenMap = true }
+        )
         .frame(height: 360)
         .padding(EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12))
     }
@@ -169,38 +141,42 @@ private struct AddTreeSheet: View {
     var onConfirm: () -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Capsule()
-                .fill(Color.white.opacity(0.3))
-                .frame(width: 48, height: 4)
-                .frame(maxWidth: .infinity)
-                .padding(.top, 4)
-            Text(localization.string("sheet.add_tree.title"))
-                .font(.title3.bold())
-            Text(localization.string("sheet.add_tree.subtitle"))
-                .font(.callout)
-                .foregroundStyle(.secondary)
-            TextField(localization.string("sheet.add_tree.placeholder"), text: $noteText)
-                .textInputAutocapitalization(.sentences)
-                .submitLabel(.done)
-                .padding(14)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-            Button {
-                Haptics.impact(.medium)
-                onConfirm()
-            } label: {
-                Label(localization.string("sheet.add_tree.button"), systemImage: "sparkles")
-                    .font(.headline)
+        ZStack {
+            AppTheme.gradient
+                .ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 16) {
+                Capsule()
+                    .fill(Color.white.opacity(0.3))
+                    .frame(width: 48, height: 4)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(AppTheme.accent.gradient.opacity(0.95))
-                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .padding(.top, 4)
+                Text(localization.string("sheet.add_tree.title"))
+                    .font(.title3.bold())
                     .foregroundStyle(.white)
+                Text(localization.string("sheet.add_tree.subtitle"))
+                    .font(.callout)
+                    .foregroundStyle(.white.opacity(0.75))
+                TextField(localization.string("sheet.add_tree.placeholder"), text: $noteText)
+                    .textInputAutocapitalization(.sentences)
+                    .submitLabel(.done)
+                    .padding(14)
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                Button {
+                    Haptics.impact(.medium)
+                    onConfirm()
+                } label: {
+                    Label(localization.string("sheet.add_tree.button"), systemImage: "sparkles")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(AppTheme.accent.gradient.opacity(0.95))
+                        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                        .foregroundStyle(.white)
+                }
             }
+            .padding(24)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(24)
-        .background(AppTheme.gradient.opacity(0.95))
-        .clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
     }
 }
 
@@ -261,6 +237,173 @@ private extension CLLocationCoordinate2D {
     }
 }
 
+
+private struct InteractiveMapView: View {
+    @ObservedObject var viewModel: DiscoveryViewModel
+    let locationManager: LocationManager
+    let localization: LocalizationProvider
+    let safeAreaInsets: SwiftUI.EdgeInsets
+    let isFullScreen: Bool
+    let onExpand: (() -> Void)?
+    let onDismiss: (() -> Void)?
+
+    init(viewModel: DiscoveryViewModel, locationManager: LocationManager, localization: LocalizationProvider, safeAreaInsets: SwiftUI.EdgeInsets, isFullScreen: Bool, onExpand: (() -> Void)? = nil, onDismiss: (() -> Void)? = nil) {
+        self.viewModel = viewModel
+        self.locationManager = locationManager
+        self.localization = localization
+        self.safeAreaInsets = safeAreaInsets
+        self.isFullScreen = isFullScreen
+        self.onExpand = onExpand
+        self.onDismiss = onDismiss
+    }
+
+    var body: some View {
+        MapReader { proxy in
+            ZStack(alignment: .topLeading) {
+                let tapHandler: (CGPoint) -> Void = { point in
+                    if let coordinate = proxy.convert(point, from: .local) {
+                        Haptics.impact(.soft)
+                        viewModel.prepareMarkerCreation(at: coordinate)
+                    }
+                }
+
+                Map(
+                    position: Binding(
+                        get: { viewModel.cameraPosition },
+                        set: { viewModel.setCameraPosition($0) }
+                    ),
+                    interactionModes: .all,
+                    content: {
+                        if locationManager.lastLocation != nil {
+                            UserAnnotation()
+                        }
+                        ForEach(viewModel.markers) { marker in
+                            Annotation("", coordinate: marker.coordinate) {
+                                TreeMarkerView(marker: marker, localization: localization)
+                            }
+                        }
+                    }
+                )
+                .onMapCameraChange(frequency: .continuous) { context in
+                    viewModel.updateVisibleRegion(context.region)
+                }
+                .mapStyle(.standard(elevation: .realistic))
+                .mapControls {
+                    MapUserLocationButton()
+                    MapCompass()
+                }
+                .simultaneousGesture(
+                    DragGesture(minimumDistance: 0).onEnded { value in
+                        if abs(value.translation.width) < 10 && abs(value.translation.height) < 10 {
+                            tapHandler(value.location)
+                        }
+                    }
+                )
+
+                CoverageHeatmapOverlay(proxy: proxy, zones: viewModel.coverageZones)
+
+                if let pending = viewModel.pendingCoordinate,
+                   let point = proxy.convert(pending, to: .local) {
+                    SelectedLocationIndicator()
+                        .position(point)
+                }
+
+                VStack(alignment: .leading, spacing: 10) {
+                    if isFullScreen, let onDismiss {
+                        Button {
+                            Haptics.impact(.soft)
+                            onDismiss()
+                        } label: {
+                            Label("Close", systemImage: "xmark")
+                                .labelStyle(.iconOnly)
+                                .font(.headline)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .background(.ultraThinMaterial, in: Capsule())
+                        }
+                        .foregroundColor(.white)
+                    } else if let onExpand {
+                        Button {
+                            Haptics.impact(.soft)
+                            onExpand()
+                        } label: {
+                            Label("Expand map", systemImage: "arrow.up.left.and.arrow.down.right")
+                                .labelStyle(.iconOnly)
+                                .font(.headline.weight(.semibold))
+                                .padding(10)
+                                .background(.ultraThinMaterial, in: Circle())
+                        }
+                        .foregroundColor(.white)
+                    }
+                }
+                .padding(.top, safeAreaInsets.top + 12)
+                .padding(.leading, 16)
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: isFullScreen ? 0 : 28, style: .continuous))
+        .overlay(alignment: .bottomTrailing) {
+            Button {
+                let coordinate = locationManager.lastLocation?.coordinate ?? viewModel.currentMapCenter
+                Haptics.impact()
+                viewModel.prepareMarkerCreation(at: coordinate)
+            } label: {
+                Label(localization.string("discover.add_tree"), systemImage: "plus")
+                    .font(.headline)
+                    .padding(.horizontal, 18)
+                    .padding(.vertical, 12)
+                    .background(AppTheme.accent.gradient.opacity(0.95))
+                    .clipShape(Capsule())
+                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 8)
+                    .foregroundStyle(.white)
+            }
+            .buttonStyle(.plain)
+            .padding(.trailing, 20)
+            .padding(.bottom, (isFullScreen ? safeAreaInsets.bottom : 0) + 24)
+        }
+        .ignoresSafeArea(isFullScreen ? .all : [])
+    }
+}
+
+private struct FullScreenMapView: View {
+    @ObservedObject var viewModel: DiscoveryViewModel
+    let locationManager: LocationManager
+    let localization: LocalizationProvider
+    let safeAreaInsets: SwiftUI.EdgeInsets
+    let onDismiss: () -> Void
+
+    var body: some View {
+        ZStack {
+            AppTheme.gradient
+                .ignoresSafeArea()
+            InteractiveMapView(
+                viewModel: viewModel,
+                locationManager: locationManager,
+                localization: localization,
+                safeAreaInsets: safeAreaInsets,
+                isFullScreen: true,
+                onExpand: nil,
+                onDismiss: onDismiss
+            )
+        }
+    }
+}
+
+private struct SelectedLocationIndicator: View {
+    var body: some View {
+        VStack(spacing: 2) {
+            Image(systemName: "mappin.circle.fill")
+                .font(.title)
+                .foregroundStyle(.white, AppTheme.accent)
+                .shadow(radius: 6)
+            Text("New tree")
+                .font(.caption2.bold())
+                .padding(.horizontal, 8)
+                .padding(.vertical, 4)
+                .background(.ultraThinMaterial, in: Capsule())
+        }
+    }
+}
+
 private struct FrostedInfoCard: View {
     let title: String
     let value: String
@@ -282,6 +425,19 @@ private struct FrostedInfoCard: View {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(AppTheme.frost, lineWidth: 1)
         )
+    }
+}
+
+private enum SafeAreaInsetsProvider {
+    static var currentInsets: EdgeInsets {
+        #if canImport(UIKit)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+            let inset = window.safeAreaInsets
+            return EdgeInsets(top: inset.top, leading: inset.left, bottom: inset.bottom, trailing: inset.right)
+        }
+        #endif
+        return EdgeInsets()
     }
 }
 
@@ -358,12 +514,14 @@ private struct UserAnnotationView: View {
 }
 
 #if canImport(UIKit)
+@MainActor
 private enum Haptics {
     static func impact(_ style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {
         UIImpactFeedbackGenerator(style: style).impactOccurred()
     }
 }
 #else
+@MainActor
 private enum Haptics {
     static func impact(_ style: UIImpactFeedbackGenerator.FeedbackStyle = .medium) {}
 }

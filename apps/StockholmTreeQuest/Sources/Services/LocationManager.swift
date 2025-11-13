@@ -37,6 +37,7 @@ final class LocationManager: NSObject, ObservableObject, LocationProviding {
         @unknown default:
             break
         }
+        manager.requestLocation()
     }
 }
 
@@ -49,6 +50,7 @@ extension LocationManager: CLLocationManagerDelegate {
             if status == .authorizedAlways || status == .authorizedWhenInUse {
                 // Use the main-actor-isolated instance property instead of the delegate's parameter
                 self?.manager.startUpdatingLocation()
+                self?.manager.requestLocation()
             }
         }
     }

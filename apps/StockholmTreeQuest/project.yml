@@ -28,6 +28,7 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         IPHONEOS_DEPLOYMENT_TARGET: 18.0
         SUPPORTED_PLATFORMS: iphoneos iphonesimulator
+        TARGETED_DEVICE_FAMILY: 1
         INFOPLIST_KEY_UIRequiresFullScreen: YES
         INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "Мы используем вашу геолокацию, чтобы отмечать местоположение рождественских ёлок поблизости."
         INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription: "Геолокация помогает отображать найденные ёлки даже после возврата в приложение."
