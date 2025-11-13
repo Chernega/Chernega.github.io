@@ -34,10 +34,6 @@ final class DiscoveryViewModel: ObservableObject {
         markers.count
     }
 
-    var coverageZones: [CoverageZone] {
-        CoverageZoneBuilder.zones(for: markers.map(\.coordinate), radius: coverageRadius)
-    }
-
     func focusOnUser() {
         guard let coordinate = locationProvider.lastLocation?.coordinate else { return }
         let region = MKCoordinateRegion(
@@ -69,10 +65,6 @@ final class DiscoveryViewModel: ObservableObject {
 
     var currentMapCenter: CLLocationCoordinate2D {
         treeStore.mapRegion.center
-    }
-
-    var zoneRadius: CLLocationDistance {
-        coverageRadius
     }
 
     func setCameraPosition(_ position: MapCameraPosition) {

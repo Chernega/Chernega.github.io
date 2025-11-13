@@ -170,64 +170,6 @@ private struct AddTreeSheet: View {
     }
 }
 
-private struct CoverageHeatmapOverlay: View {
-    let proxy: MapProxy
-    let zones: [CoverageZone]
-
-    var body: some View {
-        ZStack {
-            ForEach(zones) { zone in
-                coverageCircle(for: zone)
-            }
-        }
-        .allowsHitTesting(false)
-    }
-
-    private func pointsPerMeter(at coordinate: CLLocationCoordinate2D) -> CGFloat? {
-        let offsetDelta = 0.0005
-        let offset = CLLocationCoordinate2D(latitude: coordinate.latitude + offsetDelta, longitude: coordinate.longitude)
-        guard
-            let basePoint = proxy.convert(coordinate, to: .local),
-            let offsetPoint = proxy.convert(offset, to: .local)
-        else { return nil }
-
-        let pointDistance = hypot(basePoint.x - offsetPoint.x, basePoint.y - offsetPoint.y)
-        let meters = coordinate.distance(to: offset)
-        guard meters > 0 else { return nil }
-
-        return pointDistance / CGFloat(meters)
-    }
-
-    @ViewBuilder
-    private func coverageCircle(for zone: CoverageZone) -> some View {
-        if
-            let center = proxy.convert(zone.coordinate, to: .local),
-            let pointsPerMeter = pointsPerMeter(at: zone.coordinate),
-            pointsPerMeter > 0
-        {
-            let radiusPoints = max(CGFloat(zone.radius) * pointsPerMeter, 12)
-
-            Circle()
-                .fill(AppTheme.coverageFill)
-                .frame(width: radiusPoints * 2, height: radiusPoints * 2)
-                .overlay(
-                    Circle()
-                        .stroke(AppTheme.coverageStroke, lineWidth: 2)
-                )
-                .position(center)
-        }
-    }
-}
-
-private extension CLLocationCoordinate2D {
-    func distance(to other: CLLocationCoordinate2D) -> CLLocationDistance {
-        let current = CLLocation(latitude: latitude, longitude: longitude)
-        let target = CLLocation(latitude: other.latitude, longitude: other.longitude)
-        return current.distance(from: target)
-    }
-}
-
-
 private struct InteractiveMapView: View {
     @ObservedObject var viewModel: DiscoveryViewModel
     let locationManager: LocationManager
@@ -272,6 +214,13 @@ private struct InteractiveMapView: View {
                                 TreeMarkerView(marker: marker, localization: localization)
                             }
                         }
+                        if let pending = viewModel.pendingCoordinate {
+                            Annotation("Pending", coordinate: pending) {
+                                Text("🎄")
+                                    .font(.title)
+                                    .shadow(radius: 4)
+                            }
+                        }
                     }
                 )
                 .onMapCameraChange(frequency: .continuous) { context in
@@ -281,19 +230,13 @@ private struct InteractiveMapView: View {
                 .mapControls {
                     MapCompass()
                 }
-                .gesture(
-                    SpatialTapGesture().onEnded { value in
-                        tapHandler(value.location)
-                    }
-                )
-
-                CoverageHeatmapOverlay(proxy: proxy, zones: viewModel.coverageZones)
-
-                if let pending = viewModel.pendingCoordinate,
-                   let point = proxy.convert(pending, to: .local) {
-                    SelectedLocationIndicator()
-                        .position(point)
-                }
+                Color.clear
+                    .contentShape(Rectangle())
+                    .gesture(
+                        SpatialTapGesture().onEnded { value in
+                            tapHandler(value.location)
+                        }
+                    )
 
                 HStack {
                     if isFullScreen, let onDismiss {
